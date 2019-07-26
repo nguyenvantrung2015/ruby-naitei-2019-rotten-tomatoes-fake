@@ -1,0 +1,29 @@
+<div class="header-section">
+  <div class="container-fluid">
+    <div class="row justify-content-between align-items-center">
+      <div class="header-logo col-auto">
+        <%= image_tag("home-one/icon/logo.png", class: "logo-light") %>
+      </div>
+      <div class="header-right flex-grow-1 col-auto">
+        <div class="row justify-content-between align-items-center">
+          <%= render "layouts/admin/search_header" %>
+          <div class="col-auto">
+            <ul class="header-notification-area">
+              <li class="adomx-dropdown position-relative col-auto">
+                <%= link_to '<i class="zmdi zmdi-caret-down drop-arrow"></i>'.html_safe, "#", class: "toggle" %>
+                <ul class="adomx-dropdown-menu dropdown-menu-language">
+                  <li>
+                    <%= link_to t("admin_gui.language1"), "#" %>
+                  </li>
+                  <li>
+                    <%= link_to t("admin_gui.language2"), "#" %>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

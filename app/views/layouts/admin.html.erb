@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= t ".title" %></title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
-  </head>
-  <body>
-    <h1><%= t ".h1" %></h1>
-    <%= yield %>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title><%= t "project_title" %></title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+  <%= render "layouts/admin/css" %>
+</head>
+
+<body class="skin-dark">
+  <div class="main-wrapper">
+    <%= render "layouts/admin/header" %>
+    <%= render "layouts/admin/left_side" %>
+    <div class="content-body">
+      <%= yield %>
+    </div>
+    <%= render "layouts/admin/footer" %>
+  </div>
+  <%= render"layouts/admin/js" %>
+</body>
 </html>

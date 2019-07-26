@@ -1,10 +1,141 @@
-<h1><%= t ".title" %></h1>
-<tr>
-  <td><%= @tv_show.name %></td>
-  <td><%= @tv_show.info %></td>
-  <td><%= image_tag @tv_show.poster.url if @tv_show.poster? %></td>
-</tr>
-<tr>
-  <td><%= link_to t(".edit"), edit_tv_show_path(@tv_show) %></td>
-  <td><%= link_to t(".destroy"), @tv_show, method: :delete, data: {confirm: t(".sure")} %></td>
-</tr>
+<%= content_for :slider do %>
+  <div class="slider-area fake-slider container"></div>
+<% end %>
+<div class="container content-margin-top">
+  <div class="row">
+    <div class="col-3 reset-padding">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <%= link_to t("movies.show.tab_tvshow.title"), "#menu1", data: {toggle: "pill"}, class: "nav-link active"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to t("movies.show.tab_movie.title"), "#menu2", data: {toggle: "pill"}, class: "nav-link" %>
+        </li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <%= render "tv_shows/menu1"%>
+        <%= render "tv_shows/menu2"%>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="row">
+        <div class="col-4">
+          <%= image_tag @tv_show.poster.url if @tv_show.poster? %>
+        </div>
+        <div class="col-8 bg-dark">
+          <br>
+          <div class="text-center">
+            <h3 class="text-white">
+              <%= @tv_show.name %>
+            </h3>
+            <div class="text-white">
+              <%= t "movies.show..right_box.note1" %>
+            </div>
+            <div class="text-white">
+              <%= t "movies.show.right_box.note2" %>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-6 text-right">
+              <h3><span class="badge-warning badge">
+                  <%= @tv_show.created_at %></span></h3>
+              <h4 class="text-muted">
+                <%= t "movies.show.right_box.tomascore" %>
+              </h4>
+              <p class="text-light">
+                <%= t "movies.show.right_box.explain1" %>
+              </p>
+            </div>
+            <div class="col-6">
+              <h3><span class="badge-warning badge">
+                  <%= @tv_show.updated_at %></span></h3>
+              <h4 class="text-muted">
+                <%= t "movies.show.right_box.audiscore" %>
+              </h4>
+              <p class="text-light">
+                <%= t "movies.show.right_box.explain2" %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-4">
+        </div>
+        <div class="col-8">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">
+              <%= t "movies.show.right_box.comment" %></label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+            <br>
+            <div class="text-right"><button type="button" class="btn btn-warning btn-sm "><%= t"submit" %></button></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-center bg-danger"><span class="text-white ">
+              <%= @tv_show.name %></span>
+            <%= t"photos"%>
+          </h3>
+        </div>
+        <div class="col-12">
+          <%= image_tag @tv_show.poster.url if @tv_show.poster?%>
+        </div>
+      </div><br><br>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-center bg-danger"><span class="text-white ">
+              <%= t"movies.show.tab_movie.title" %></span>
+            <%= t"info"%>
+          </h3>
+        </div>
+        <div class="col-12">
+          <p>
+            <%= @tv_show.info %>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-center bg-danger"><span class="text-white ">
+              <%= t"cast" %></span></h3>
+        </div>
+        <div class="col-12">
+          <div class="row">
+            <div class="col-2">
+              <div>
+                <%= image_tag("home-video/trailer/1.jpg", class: "rounded-circle") %>
+              </div><br>
+              <h6 class="text-center"><span class="text-warning">
+                  <%= t "teamplate.name" %></span></h6>
+            </div>
+            <div class="col-2">
+              <div>
+                <%= image_tag("home-video/trailer/1.jpg", class: "rounded-circle") %>
+              </div><br>
+              <h6 class="text-center"><span class="text-warning">
+                  <%= t "teamplate.name" %></span></h6>
+            </div>
+            <div class="col-2">
+              <div>
+                <%= image_tag("home-video/trailer/1.jpg", class: "rounded-circle") %>
+              </div><br>
+              <h6 class="text-center"><span class="text-warning">
+                  <%= t "teamplate.name" %></span></h6>
+            </div>
+            <div class="col-2">
+              <div>
+                <%= image_tag("home-video/trailer/1.jpg", class: "rounded-circle") %>
+              </div><br>
+              <h6 class="text-center"><span class="text-warning">
+                  <%= t "teamplate.name" %></span></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

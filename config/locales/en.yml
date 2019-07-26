@@ -176,3 +176,13 @@ en:
     admin:
       title: "Admin Dashboard"
       h1: "Admin"
+  nameteam: "Team TSC"
+  nameweb: "Rotten Tomatoes &copy;"
+  admin_gui:
+    language1: "English"
+    language2: "Vietnamese"
+    teamplate:
+      mail: "You have 3 new mail."
+      title: "Sub: New Account"
+      note: "You have 4 new notification."
+      time: "11.00 am Today"

@@ -1,0 +1,53 @@
+<div class="tab-pane active" id="menu1">
+  <div class="panel panel-default">
+    <h2><span class="badge badge-warning">
+        <%= t "movies.show.tab_tvshow.top" %></span></h2>
+    <div>
+      <!-- Content -->
+      <% count = 0 %>
+      <% @tv_shows.each do |movie| %>
+        <% if count < 5 %>
+          <h5><span class="badge-light"><i class="fa fa-film" aria-hidden="true"></i></span>
+            <%= link_to movie.name, movie, class: "text-warning"%>
+          </h5>
+        <% end %>
+        <% count += 1 %>
+      <% end %>
+      <!--end content -->
+    </div>
+    <% if @tv_shows.count  > 5 %>
+    <%= link_to t("movies.show.more"),"#", class: "text-info", data: {toggle: "collapse", target: "#newtv"}%>
+      <div id="newtv" class="collapse">
+        <% @tv_shows.last(@tv_shows.count -5).each do |movie| %>
+          <h5><span class="badge-light"><i class="fa fa-film" aria-hidden="true"></i></span>
+            <%= link_to movie.name, movie, class: "text-warning"%>
+          </h5>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <h5><span class="badge badge-warning">
+      <%= t "movies.show.tab_tvshow.new" %></span>
+  </h5>
+  <div>
+    <% count = 0 %>
+    <% @tv_shows.each do |movie|  %>
+      <% if count < 5 %>
+        <h5><span class="badge-light"><i class="fa fa-film" aria-hidden="true"></i></span>
+          <%= link_to movie.name, movie, class: "text-warning"%>
+        </h5>
+      <% end %>
+      <% count += 1 %>
+    <% end %>
+  </div>
+  <% if @tv_shows.count  > 5 %>
+    <%= link_to t("movies.show.more"),"#", class: "text-info", data: {toggle: "collapse", target: "#toptv"} %>
+    <div id="toptv" class="collapse">
+      <% @tv_shows.last(@tv_shows.count -5).each do |movie| %>
+        <h5><span class="badge-light"><i class="fa fa-film" aria-hidden="true"></i></span>
+          <%= link_to movie.name, movie, class: "text-warning"%>
+        </h5>
+      <% end %>
+    </div>
+  <% end %>
+</div>

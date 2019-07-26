@@ -1,6 +1,6 @@
 class TvShowsController < ApplicationController
   before_action :load_tvshow, except: %i(index new create)
-
+  before_action :build_user, except: %i(create update destroy)
   def index
     @tv_shows = TvShow.create_desc.page(params[:page]).per Settings.tvshows
                                                                    .paginate
@@ -22,7 +22,11 @@ class TvShowsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @tv_shows = TvShow.create_desc
+    @movies_top_new = Movie.create_top_new
+    @movies_top_score = Movie.create_top_score
+  end
 
   def edit; end
 
@@ -57,5 +61,9 @@ class TvShowsController < ApplicationController
     return if @tv_show
     flash[:danger] = t ".not_found"
     redirect_to tv_shows_url
+  end
+
+  def build_user
+    @user = User.new
   end
 end

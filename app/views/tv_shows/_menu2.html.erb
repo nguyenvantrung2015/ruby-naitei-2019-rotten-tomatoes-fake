@@ -1,0 +1,53 @@
+<div class="tab-pane fade" id="menu2">
+  <div class="panel panel-default">
+    <h2><span class="badge badge-warning">
+        <%= t "movies.show.tab_movie.top" %></span></h2>
+    <div>
+      <!-- Content -->
+      <% count = 0 %>
+      <% @movies_top_new.each do |movie| %>
+        <% if count < 5 %>
+          <h5><span class="badge-light"><i class="fa fa-film" aria-hidden="true"></i></span>
+            <%= link_to movie.name, movie, class: "text-warning"%>
+          </h5>
+        <% end %>
+        <% count += 1 %>
+      <% end %>
+      <!--end content -->
+    </div>
+    <% if @movies_top_new.count  > 5 %>
+      <%= link_to t("movies.show.more"),"#", class: "text-info", data: {toggle: "collapse", target: "#demo"}%>
+      <div id="demo" class="collapse">
+        <% @movies_top_new.last(@movies_top_new.count -5).each do |movie| %>
+          <h5><span class="badge-light"><i class="fa fa-film" aria-hidden="true"></i></span>
+            <%= link_to movie.name, movie, class: "text-warning"%>
+          </h5>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <h5><span class="badge badge-warning">
+      <%= t "movies.show.tab_movie.new" %></span>
+  </h5>
+  <div>
+    <% count = 0 %>
+    <% @movies_top_score.each do |movie|  %>
+      <% if count < 5 %>
+        <h5><span class="badge-light"><i class="fa fa-film" aria-hidden="true"></i></span>
+          <%= link_to movie.name, movie, class: "text-warning"%>
+        </h5>
+      <% end %>
+      <% count += 1 %>
+    <% end %>
+  </div>
+  <% if @movies_top_score.count  > 5 %>
+  <%= link_to t("movies.show.more"),"#", class: "text-info", data: {toggle: "collapse", target: "#topmovie"} %>
+    <div id="topmovie" class="collapse">
+      <% @movies_top_score.last(@movies_top_score.count -5).each do |movie| %>
+        <h5><span class="badge-light"><i class="fa fa-film" aria-hidden="true"></i></span>
+          <%= link_to movie.name, movie, class: "text-warning"%>
+        </h5>
+      <% end %>
+    </div>
+  <% end %>
+</div>

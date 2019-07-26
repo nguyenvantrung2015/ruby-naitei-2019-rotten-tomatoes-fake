@@ -5,9 +5,9 @@ User.create! name: "Admin User",
   role: 0
 
 User.create! name: "Moderator User",
-  email: "moderator@gmail.com",
-  password: "123123",
-  password_confirmation: "123123",
+  email: "user@gmail.com",
+  password: "123456",
+  password_confirmation: "123456",
   role: 1
 
 25.times do |n|
@@ -35,7 +35,7 @@ end
 end
 
 30.times do |n|
-  name = Faker::Movie.quote
+  name = name = Faker::Lorem.sentence 3
   release_date = Faker::Date.between 2.days.ago, Date.today
   critic_score = Faker::Number.decimal 1, 1
   audience_score = Faker::Number.decimal 1, 1
@@ -50,7 +50,7 @@ end
 end
 
 30.times do |n|
-  name = Faker::Movie.quote
+  name = name = Faker::Lorem.sentence 3
   info = Faker::Lorem.paragraph 2, false, 10
 
   TvShow.create! name: name,

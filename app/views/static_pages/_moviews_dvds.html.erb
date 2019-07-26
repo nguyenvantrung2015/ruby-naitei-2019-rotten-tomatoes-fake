@@ -13,33 +13,32 @@
       <div class="row">
         <div class="col-md-6">
           <div class="trailer-left-area slider slider-for-team">
-            <div class="slick-left-thumb">
-              <%= image_tag("home-video/latest-trailer/left-1.jpg",
-                            :alt => "") %>
-              <%= link_to image_tag("home-video/play-arrow.png", alt: ""),
-                          "www.youtube.com/watch?v=TLnmb07WQ-s", class:
-                              "popup-youtube" %>
-            </div>
+            <% @movies.each do |movie| %>
+              <div class="slick-left-thumb">
+                <%= image_tag movie.poster.url if movie.poster? %>
+                <%= link_to image_tag("home-video/play-arrow.png", alt: ""),
+                 "https://www.youtube.com/watch?v=hzeI_-Trzu8", class: "popup-youtube" %></div>
+            <% end %>
           </div>
         </div>
         <div class="col-md-6">
           <div class="trailer-right-area slider slider-nav-team">
-            <div class="traier-nav-thumb-area">
-              <div class="trailer-thumb-single mb-10">
-                <div class="trailer-thumb">
-                  <%= image_tag("home-video/latest-trailer/right-1.jpg") %>
-                </div>
-                <div class="trailer-content">
-                  <h6>
-                    <%= t "teamplate.name" %>
-                  </h6>
-                  <span>
-                    <%= t "teamplate.rate" %></span>
-                  <span>
-                    <%= t "teamplate.rate" %></span>
+            <% @movies.each do |movie| %>
+              <div class="traier-nav-thumb-area">
+                <div class="trailer-thumb-single mb-10">
+                  <div class="trailer-thumb trailer-thumb-movie">
+                    <%= image_tag movie.poster.url if movie.poster? %>
+                  </div>
+                  <div class="trailer-content">
+                    <h6>
+                      <%= link_to movie.name, movie %>
+                    </h6>
+                    <span><%= movie.critic_score %></span>
+                    <span><%= movie.audience_score %></span>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
