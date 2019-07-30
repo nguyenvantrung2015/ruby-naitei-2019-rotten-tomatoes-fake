@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
   resources :celebrities, only: %i(index show)
-  resources :news
+  resources :news, only: :index
   resources :reviews, except: %i(edit update)
 
   namespace :admin do

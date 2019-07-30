@@ -1,7 +1,6 @@
 <%= form_for @review do |f| %>
   <%= f.label t ".content" %>
   <%= f.text_field :content, class: "form-control", required: true %>
-
   <%#= f.label t ".score" %>
   <%#= f.select :score, (1..10), class: "form-control" %>
 
@@ -27,7 +26,6 @@
     <%= f.radio_button :score, 1, {id: "st10"} %>
     <label for="st10"></label>
   </div><br><br>
-
 
   <%= f.hidden_field :medium_id, {value: medium_id} %>
   <%= f.hidden_field :user_id, {value: user_id} %>

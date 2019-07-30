@@ -1,7 +1,6 @@
 en:
-
-  project_title: "Home Video - RottenPotatoes"
   add_celebiry: "Add Celebrity"
+  project_title: "Rotten Potatoes - Review Film"
   users:
     new:
       h1: "Sign up"

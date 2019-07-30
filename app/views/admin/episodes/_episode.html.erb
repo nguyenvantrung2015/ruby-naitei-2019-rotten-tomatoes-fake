@@ -2,7 +2,7 @@
    <%= link_to episode.episode_number, admin_tv_show_season_episode_path(@tv_show, @season, episode) %>
  </h3>
  <span class="badge badge-warning">
-   <%= link_to t(".delete"), admin_tv_show_season_episode_path(@tv_show, @season, episode),method: :delete %>
+   <%= link_to t(".delete"), admin_tv_show_season_episode_path(@tv_show, @season, episode),method: :delete, data: {confirm: t(".sure")} %>
  </span>
  <br><br>
  <%= render "admin/episodes/form", episode: episode %>

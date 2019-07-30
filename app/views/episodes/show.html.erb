@@ -23,7 +23,11 @@
           <br>
           <div class="text-center">
             <h3 class="text-white">
-              <%= @episode.episode_number %>
+              <%= @episode.season.tv_show.name %>
+            </h3>
+            <h3 class="text-white">
+              Season <%= @episode.season.season_number %> -
+              Episode <%= @episode.episode_number %>
             </h3>
             <div class="text-white">
               <%= t "movies.show.right_box.note1" %>

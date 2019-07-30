@@ -73,7 +73,7 @@
                   <div class="card-body">
                     <h4 class="card-title">
                       <span class="badge badge-warning"><%= season.critic_score.round(1) > 0 ? season.critic_score.round(1) : "N/A"  %></span>
-                      <%= link_to season.season_number, tv_show_season_path(@tv_show, season)%>
+                      <%= link_to "Season #{season.season_number}", tv_show_season_path(@tv_show, season)%>
                     </h4>
                   </div>
                 </div>

@@ -2,7 +2,7 @@
   <%= link_to season.season_number, admin_tv_show_season_path(@tv_show, season), class: "text-danger" %>
 </h3>
 <span class="badge badge-warning">
-  <%= link_to t(".delete"), admin_tv_show_season_path(@tv_show,season), method: :delete %>
+  <%= link_to t(".delete"), admin_tv_show_season_path(@tv_show,season), method: :delete, data: {confirm: t(".sure")} %>
 </span>
 <br><br>
 <div class="box">

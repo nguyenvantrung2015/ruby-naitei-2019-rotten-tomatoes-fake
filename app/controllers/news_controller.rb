@@ -4,6 +4,14 @@ class NewsController < ApplicationController
 
   def index
     @all_news = News.create_desc.page(params[:page]).per Settings.news.paginate
+
+    @tv_shows = TvShow.create_desc.page(params[:page]).per Settings.tvshows.paginate
+
+    @top_new_show = Movie.create_top_new.top_new_show
+    @top_new_more = @top_new_show.top_new_more
+
+    @top_score_show = Movie.create_top_score.top_score_show
+    @top_score_more = @top_score_show.top_score_more
   end
 
   def new
@@ -42,7 +50,7 @@ class NewsController < ApplicationController
     else
       flash[:danger] = t ".delete_failed"
     end
-    redirect_to news_url
+    redirect_to news_index_path
   end
 
   private
@@ -56,7 +64,7 @@ class NewsController < ApplicationController
 
     return if @news
     flash[:danger] = t ".not_found"
-    redirect_to news_url
+    redirect_to news_index_path
   end
 
   def build_user

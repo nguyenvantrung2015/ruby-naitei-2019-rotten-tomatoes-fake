@@ -26,7 +26,10 @@
           <br>
           <div class="text-center">
             <h3 class="text-white">
-              <%= @season.season_number %>
+              <%= @season.tv_show.name %>
+            </h3>
+            <h3 class="text-white">
+              Season <%= @season.season_number %>
             </h3>
             <div class="text-white">
               <%= t "movies.show.right_box.note1" %>
@@ -73,7 +76,7 @@
                       <span class="badge badge-warning">
                         <%= episode.critic_score.round(1) > 0 ? episode.critic_score.round(1) : "N/A" %>
                       </span>
-                      <%= link_to episode.episode_number, tv_show_season_episode_path(@tv_show, @season, episode)%>
+                      <%= link_to "Episode #{episode.episode_number}", tv_show_season_episode_path(@tv_show, @season, episode)%>
                     </h4>
                   </div>
                 </div>
@@ -85,7 +88,7 @@
       <div class="row">
         <div class="col-12">
           <h3 class="text-center bg-danger"><span class="text-white ">
-              <%= @season.season_number %></span>
+              Season <%= @season.season_number %></span>
             <%= t"photos"%>
           </h3>
         </div>

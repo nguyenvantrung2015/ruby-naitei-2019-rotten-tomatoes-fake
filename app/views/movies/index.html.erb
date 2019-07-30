@@ -14,7 +14,9 @@
               <%= image_tag movie.poster.url, class: "card-img-top" if movie.poster? %>
               <div class="card-body item-body">
                 <h4 class="card-title">
-                  <span class="badge badge-warning"><%= movie.critic_score.round(1) %></span>
+                  <span class="badge badge-warning">
+                    <%= movie.critic_score == 0 ? "N/A" : movie.critic_score.round(1)%>
+                  </span>
                   <%= link_to movie.name, movie %>
                 </h4>
               </div>

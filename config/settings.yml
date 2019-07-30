@@ -41,5 +41,5 @@ celebrities:
   portrait_accept: "image/jpeg,image/gif,image/png"
 
 news:
-  content_max_length: 1000
+  content_max_length: 10000
   paginate: 10
