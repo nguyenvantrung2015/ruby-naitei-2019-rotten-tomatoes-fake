@@ -5,6 +5,7 @@ class Movie < ApplicationRecord
   mount_uploader :poster, PosterUploader
 
   scope :create_desc, ->{order name: :desc}
+
   scope :create_top_new, ->{order release_date: :desc}
   scope :create_top_score, ->{order critic_score: :desc}
   scope :top_new_show, ->{limit Settings.movies.top}

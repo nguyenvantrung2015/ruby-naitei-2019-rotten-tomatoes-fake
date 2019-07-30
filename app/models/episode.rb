@@ -10,17 +10,6 @@ class Episode < ApplicationRecord
     length: {maximum: Settings.episodes.info_max_length}
   validate :unique_episode_number
 
-
-  def critic_score
-    self.medium.reviews
-      .joins(:user).where(users: {role: :critic}).average(:score) || 0
-  end
-
-  def audience_score
-    self.medium.reviews
-      .joins(:user).where.not(users: {role: :critic}).average(:score) || 0
-  end
-
   def critic_score
     self.medium.reviews
       .joins(:user).where(users: {role: :critic}).average(:score) || 0

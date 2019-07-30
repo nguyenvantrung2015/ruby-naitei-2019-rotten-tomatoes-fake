@@ -3,7 +3,9 @@ class TvShow < ApplicationRecord
 
   mount_uploader :poster, TvShowPosterUploader
 
-  scope :create_desc, ->{order(created_at: :desc)}
+  scope :create_desc, ->{order created_at: :desc}
+
+  scope :create_top_score, ->{sort_by(&:critic_score)}
 
   ATTR = %i(name info poster).freeze
 
