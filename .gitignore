@@ -22,12 +22,10 @@
 !/storage/.keep
 .idea/
 /test/*
-/config/database.yml
 
 /node_modules
 /yarn-error.log
 
-/public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
@@ -37,8 +35,3 @@
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
-
-# Ignore uploaded test images.
-/public/uploads
-poster.jpg
-
