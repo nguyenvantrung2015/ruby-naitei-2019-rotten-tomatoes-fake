@@ -13,6 +13,16 @@ class Season < ApplicationRecord
   scope :tv_show, ->(tv_show_id){where tv_show_id: tv_show_id}
   scope :tv_show_critic_score, ->(id){tv_show(id)}
 
+  def critic_score
+    arr = self.episodes.map(&:critic_score).reject{|x| x==0}
+    arr.inject{|sum, score| sum+score} / arr.size
+  end
+
+  def audience_score
+    arr = self.episodes.map(&:audience_score).reject{|x| x==0}
+    arr.inject{|sum, score| sum+score} / arr.size
+  end
+
   private
 
   def unique_season_number

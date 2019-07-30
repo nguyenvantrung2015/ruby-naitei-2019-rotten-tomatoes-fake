@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :movies, only: %i(index show)
   resources :tv_shows, only: %i(index show) do
     resources :seasons, only: :show do
-      resource :episodes, only: :show
+      resources :episodes, only: :show
     end
   end
   resources :celebrities, only: %i(index show)

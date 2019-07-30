@@ -20,7 +20,16 @@
                   </li>
                 </ul>
               </li>
-              <li><%= link_to t("logout"), logout_path, method: :delete %></li>
+              <li>
+                <ul>
+                  <li>
+                    <%= link_to t("Home"), root_path %>
+                  </li>
+                  <li>
+                    <%= link_to t("logout"), logout_path, method: :delete %>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>

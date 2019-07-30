@@ -1,16 +1,16 @@
 <%= form_for [:admin, @celebrity] do |f| %>
   <%= render "admin/shared/error_messages", object: f.object %>
-  <%= f.label t ".name" %>
-  <%= f.text_field :name, class: "form-control" %>
+  <h4 class="text-warning"><%= f.label t ".name" %></h4>
+  <%= f.text_field :name, class: "form-control" %><br>
 
-  <%= f.label t ".date_of_birth" %>
-  <%= f.text_field :date_of_birth, class: "form-control" %>
+  <h4 class="text-warning"><%= f.label t ".date_of_birth" %></h4>
+  <%= f.text_field :date_of_birth, class: "form-control" %><br>
 
-  <%= f.label t ".gender" %>
-  <%= f.text_field :gender, class: "form-control" %>
+  <h4 class="text-warning"><%= f.label t ".gender" %></h4>
+  <%= f.text_field :gender, class: "form-control" %><br>
 
-  <%= f.label t ".nationality" %>
-  <%= f.text_field :nationality, class: "form-control" %>
+  <h4 class="text-warning"><%= f.label t ".nationality" %></h4>
+  <%= f.text_field :nationality, class: "form-control" %><br>
 
   <span class="portrait">
     <%= f.file_field :portrait, accept: Settings.celebrities.portrait_accept %>

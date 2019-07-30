@@ -14,6 +14,16 @@ class Episode < ApplicationRecord
   scope :season_critic_score, ->(id){season(id).average(:critic_score)}
   scope :season_audien_score, ->(id){season(id).average(:audience_score)}
 
+  def critic_score
+    self.medium.reviews
+      .joins(:user).where(users: {role: :critic}).average(:score) || 0
+  end
+
+  def audience_score
+    self.medium.reviews
+      .joins(:user).where.not(users: {role: :critic}).average(:score) || 0
+  end
+
   private
 
   def unique_episode_number

@@ -19,14 +19,11 @@
     </div>
     <div class="col-9">
       <div class="row">
-        <div class="col-4">
-          <%= image_tag @season.poster.url if @season.poster? %>
-        </div>
-        <div class="col-8 bg-dark">
+        <div class="col-8 offset-2 bg-dark">
           <br>
           <div class="text-center">
             <h3 class="text-white">
-              <%= @season.season_number %>
+              <%= @episode.episode_number %>
             </h3>
             <div class="text-white">
               <%= t "movies.show.right_box.note1" %>
@@ -39,7 +36,7 @@
           <div class="row">
             <div class="col-6 text-right">
               <h3><span class="badge-warning badge">
-                  <%= @season.critic_score.round(1) %></span></h3>
+                  <%= @episode.critic_score.round(1) %></span></h3>
               <h4 class="text-muted">
                 <%= t "movies.show.right_box.tomascore" %>
               </h4>
@@ -49,7 +46,7 @@
             </div>
             <div class="col-6">
               <h3><span class="badge-warning badge">
-                  <%= @season.audience_score.round(1) %></span></h3>
+                  <%= @episode.audience_score.round(1) %></span></h3>
               <h4 class="text-muted">
                 <%= t "movies.show.right_box.audiscore" %>
               </h4>
@@ -61,38 +58,10 @@
         </div>
       </div><br>
       <div class="row">
-        <div class="col-12">
-          <h3 class="text-center bg-danger"><span class="text-white ">
-              <%= t "episodes" %></span></h3>
-          <div class="row">
-            <% @season.episodes.each do |episode| %>
-              <div class="col-4">
-                <div class="card seasons_line">
-                  <div class="card-body">
-                    <h4 class="card-title">
-                      <span class="badge badge-warning">
-                        <%= episode.critic_score.round(1) > 0 ? episode.critic_score.round(1) : "N/A" %>
-                      </span>
-                      <%= link_to episode.episode_number, tv_show_season_episode_path(@tv_show, @season, episode)%>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
+        <div class="col-8 offset-2">
+          <%= render("reviews/form", medium_id: @episode.medium.id, user_id: current_user.id) unless current_user&.reviewed?(@episode.medium) %>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <h3 class="text-center bg-danger"><span class="text-white ">
-              <%= @season.season_number %></span>
-            <%= t"photos"%>
-          </h3>
-        </div>
-        <div class="col-12">
-          <%= image_tag @season.poster.url if @season.poster?%>
-        </div>
-      </div><br><br>
       <div class="row">
         <div class="col-12">
           <h3 class="text-center bg-danger"><span class="text-white ">
@@ -102,7 +71,7 @@
         </div>
         <div class="col-12">
           <p>
-            <%= @season.info %>
+            <%= @episode.info %>
           </p>
         </div>
       </div>
@@ -143,6 +112,18 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-center bg-danger"><span class="text-white ">
+              <%= t"review" %></span>
+          </h3>
+        </div>
+        <% if @episode.medium.reviews.any? %>
+          <%= render @episode.medium.reviews %>
+        <% else %>
+          <%= "No review yet" %>
+        <% end %>
       </div>
     </div>
   </div>

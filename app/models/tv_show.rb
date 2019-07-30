@@ -11,4 +11,14 @@ class TvShow < ApplicationRecord
     length: {maximum: Settings.tvshows.name_max_length}
   validates :info, presence: true,
     length: {maximum: Settings.tvshows.info_max_length}
+
+  def critic_score
+    arr = self.seasons.map(&:critic_score).reject{|x| x==0}
+    arr.inject{|sum, score| sum+score} / arr.size
+  end
+
+  def audience_score
+    arr = self.seasons.map(&:audience_score).reject{|x| x==0}
+    arr.inject{|sum, score| sum+score} / arr.size
+  end
 end
