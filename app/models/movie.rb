@@ -21,12 +21,12 @@ class Movie < ApplicationRecord
 
   def critic_score
     self.medium.reviews
-      .joins(:user).where(users: {role: :critic}).average(:score) || "N/A"
+      .joins(:user).where(users: {role: :critic}).average(:score) || 0
   end
 
   def audience_score
     self.medium.reviews
-      .joins(:user).where.not(users: {role: :critic}).average(:score) || "N/A"
+      .joins(:user).where.not(users: {role: :critic}).average(:score) || 0
   end
 
   private

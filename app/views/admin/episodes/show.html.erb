@@ -35,6 +35,14 @@
   </div>
 </div>
 <br>
+<% if @episode.medium.celebrity_media.any? %>
+  <br>
+  <%= render @episode.medium.celebrity_media %>
+<% end %>
+
+<h2><%= t ".add_celebrity" %></h2>
+<%= render "admin/celebrity_media/form", celebrity_medium: @episode.medium.celebrity_media.build, medium_id: @episode.medium.id %>
+<br>
 <span class="badge badge-danger">
   <%= link_to t(".back"), admin_tv_show_season_path(@tv_show, @season) %>
 </span>

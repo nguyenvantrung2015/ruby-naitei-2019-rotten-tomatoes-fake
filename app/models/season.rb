@@ -15,12 +15,12 @@ class Season < ApplicationRecord
 
   def critic_score
     arr = self.episodes.map(&:critic_score).reject{|x| x==0}
-    arr.inject{|sum, score| sum+score} / arr.size
+    arr ? arr.inject{|sum, score| sum+score} / arr.size : 0
   end
 
   def audience_score
     arr = self.episodes.map(&:audience_score).reject{|x| x==0}
-    arr.inject{|sum, score| sum+score} / arr.size
+    arr ? arr.inject{|sum, score| sum+score} / arr.size : 0
   end
 
   private

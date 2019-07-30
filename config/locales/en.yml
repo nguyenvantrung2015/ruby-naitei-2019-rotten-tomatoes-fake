@@ -1,5 +1,7 @@
 en:
-  project_title: "Home Video - Ftage"
+
+  project_title: "Home Video - RottenPotatoes"
+  add_celebiry: "Add Celebrity"
   users:
     new:
       h1: "Sign up"

@@ -1,7 +1,13 @@
-<p>
-  <%= celebrity_medium.role.capitalize %>:
-  <%= celebrity_medium.celebrity.name %>
-
-  <%= link_to t(".destroy"), admin_celebrity_medium_path(celebrity_medium), method: :delete, data: {confirm: t(".sure")} %>
-</p>
-<br>
+<div class="row">
+  <div class="col-2 text-right">
+  <h4 class="text-warning"><%= celebrity_medium.role.capitalize %> :</h4>
+  </div>
+  <div class="col-4 text-white">
+    <%= celebrity_medium.celebrity.name %>
+  </div>
+  <div class="col-4">
+    <span class="badge-warning badge">
+      <%= link_to t(".destroy"), admin_celebrity_medium_path(celebrity_medium), method: :delete, data: {confirm: t(".sure")} %>
+    </span>
+  </div>
+</div>

@@ -33,8 +33,8 @@
                     <h6>
                       <%= link_to movie.name, movie %>
                     </h6>
-                    <span><%= movie.critic_score %></span>
-                    <span><%= movie.audience_score %></span>
+                    <span><%= movie.critic_score.round(1) %></span>
+                    <span><%= movie.audience_score.round(1) %></span>
                   </div>
                 </div>
               </div>
