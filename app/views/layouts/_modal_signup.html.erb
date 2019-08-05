@@ -38,6 +38,8 @@
             required: true %>
         </div>
 
+        <%= f.hidden_field :role, {value: User.roles.key(Settings.users.role.normal)} %>
+
         <%= f.button t("sign_up.title"), type: "submit", class:
           "btn btn-lg btn-primary btn-block
           text-uppercase" %>

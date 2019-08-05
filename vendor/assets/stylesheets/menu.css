@@ -1,5 +1,5 @@
 /* =======================================
-	
+
 	Template: Flim Studio
 
 ========================================== */
@@ -333,7 +333,7 @@
   z-index: 100000;
 }
 
-.form-signin input[type="email"],  
+.form-signin input[type="email"],
 .form-signin input[type="password"],
 .form-signin input[type="text"]
 {
@@ -386,4 +386,89 @@
   color: red !important;
   font-weight: 500 !important;
   font-size: 15px !important;
+}
+
+.movie_line {
+  width: 17rem;
+  margin-bottom: 20px;
+}
+
+.item-body {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 32ch;
+}
+
+.movie_head {
+  margin: 0 auto;
+  width: 100%;
+  text-align: left !important;
+  display: block;
+  border-bottom: 3px solid #6b6363b5;
+  margin-bottom: 15px;
+}
+
+.seasons_line {
+  margin-bottom: 20px;
+}
+
+.review-box {
+  margin-bottom: 12px;
+  background-color: initial;
+  border: 1px solid #e2a750;
+  border-radius: 26px;
+}
+
+.content-review-color {
+  color: white;
+}
+
+.rate input {
+  border: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  opacity: 0;
+}
+
+.rate label {
+  position: relative;
+  float: right;
+  color: #C8C8C8;
+}
+
+.rate label:before {
+  margin: 5px;
+  content: "\f005";
+  font-family: FontAwesome;
+  display: inline-block;
+  font-size: 1.5em;
+  color: #ccc;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.rate input:checked ~ label:before {
+  color: #FFC107;
+}
+
+.rate label:hover ~ label:before {
+  color: #ffdb70;
+}
+
+.rate label:hover:before {
+  color: #FFC107;
+}
+
+.logo-head {
+
+}
+.card-img-top{
+  width: 270px;
+  height: 400px;
 }

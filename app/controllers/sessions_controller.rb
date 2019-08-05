@@ -10,14 +10,14 @@ class SessionsController < ApplicationController
     if user&.authenticate(session[:password])
       log_in user
       session[:remember_me] == "1" ? remember(user) : forget(user)
-      user.admin? ? redirect_to(admin_root_path) : redirect_to(root_path)
+      user.admin? ? redirect_to(admin_root_path) : redirect_to(request.referrer)
     else
-      render :new
+      redirect_to request.referrer
     end
   end
 
   def destroy
     log_out if logged_in?
-    redirect_to root_url
+    redirect_to request.referrer
   end
 end

@@ -8,6 +8,7 @@ users:
     critic: 2
     normal: 3
 paginate: 10
+paginate_movie: 27
 
 movies:
   name_max_length: 100
@@ -15,7 +16,7 @@ movies:
   index_poster_height: 200
   index_poster_width: 400
   poster_accept: "image/jpeg,image/gif,image/png"
-  top: 5
+  top: 10
 
 tvshows:
   name_max_length: 100

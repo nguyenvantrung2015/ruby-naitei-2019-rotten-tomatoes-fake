@@ -1,0 +1,36 @@
+<%= form_for @review do |f| %>
+  <%= f.label t ".content" %>
+  <%= f.text_field :content, class: "form-control", required: true %>
+  <%#= f.label t ".score" %>
+  <%#= f.select :score, (1..10), class: "form-control" %>
+
+  <div class="rate">
+    <%= f.radio_button :score, 10, {id: "st1"} %>
+    <label for="st1"></label>
+    <%= f.radio_button :score, 9, {id: "st2"} %>
+    <label for="st2"></label>
+    <%= f.radio_button :score, 8, {id: "st3"} %>
+    <label for="st3"></label>
+    <%= f.radio_button :score, 7, {id: "st4"} %>
+    <label for="st4"></label>
+    <%= f.radio_button :score, 6, {id: "st5"} %>
+    <label for="st5"></label>
+    <%= f.radio_button :score, 5, {id: "st6"} %>
+    <label for="st6"></label>
+    <%= f.radio_button :score, 4, {id: "st7"} %>
+    <label for="st7"></label>
+    <%= f.radio_button :score, 3, {id: "st8"} %>
+    <label for="st8"></label>
+    <%= f.radio_button :score, 2, {id: "st9"} %>
+    <label for="st9"></label>
+    <%= f.radio_button :score, 1, {id: "st10"} %>
+    <label for="st10"></label>
+  </div><br><br>
+
+  <%= f.hidden_field :medium_id, {value: medium_id} %>
+  <%= f.hidden_field :user_id, {value: user_id} %>
+
+  <div class="text-right">
+    <%= f.button "Submit", type: "submit", class: "btn btn-warning btn-sm" %>
+  </div><br>
+<% end %>

@@ -1,0 +1,152 @@
+<%= content_for :slider do %>
+  <div class="slider-area fake-slider container"></div>
+<% end %>
+<div class="container content-margin-top">
+  <div class="row">
+    <div class="col-3 reset-padding">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <%= link_to t("movies.show.tab_movie.title"), "#menu1", data: {toggle: "pill"}, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t("movies.show.tab_tvshow.title"), "#menu2", data: {toggle: "pill"}, class: "nav-link active"%>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <%= render "tv_shows/menu1" %>
+        <%= render "tv_shows/menu2" %>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="row">
+        <div class="col-4">
+          <%= image_tag @season.poster.url if @season.poster? %>
+        </div>
+        <div class="col-8 bg-dark">
+          <br>
+          <div class="text-center">
+            <h3 class="text-white">
+              <%= @season.tv_show.name %>
+            </h3>
+            <h3 class="text-white">
+              Season <%= @season.season_number %>
+            </h3>
+            <div class="text-white">
+              <%= t "movies.show.right_box.note1" %>
+            </div>
+            <div class="text-white">
+              <%= t "movies.show.right_box.note2" %>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-6 text-right">
+              <h3><span class="badge-warning badge">
+                  <%= @season.critic_score.round(1) %></span></h3>
+              <h4 class="text-muted">
+                <%= t "movies.show.right_box.tomascore" %>
+              </h4>
+              <p class="text-light">
+                <%= t "movies.show.right_box.explain1" %>
+              </p>
+            </div>
+            <div class="col-6">
+              <h3><span class="badge-warning badge">
+                  <%= @season.audience_score.round(1) %></span></h3>
+              <h4 class="text-muted">
+                <%= t "movies.show.right_box.audiscore" %>
+              </h4>
+              <p class="text-light">
+                <%= t "movies.show.right_box.explain2" %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-center bg-danger"><span class="text-white ">
+              <%= t "episodes" %></span></h3>
+          <div class="row">
+            <% @season.episodes.each do |episode| %>
+              <div class="col-4">
+                <div class="card seasons_line">
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      <span class="badge badge-warning">
+                        <%= episode.critic_score.round(1) > 0 ? episode.critic_score.round(1) : "N/A" %>
+                      </span>
+                      <%= link_to "Episode #{episode.episode_number}", tv_show_season_episode_path(@tv_show, @season, episode)%>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-center bg-danger"><span class="text-white ">
+              Season <%= @season.season_number %></span>
+            <%= t"photos"%>
+          </h3>
+        </div>
+        <div class="col-12">
+          <%= image_tag @season.poster.url if @season.poster?%>
+        </div>
+      </div><br><br>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-center bg-danger"><span class="text-white ">
+              <%= t"movies.show.tab_movie.title" %></span>
+            <%= t"info"%>
+          </h3>
+        </div>
+        <div class="col-12">
+          <p>
+            <%= @season.info %>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-center bg-danger"><span class="text-white ">
+              <%= t"cast" %></span></h3>
+        </div>
+        <div class="col-12">
+          <div class="row">
+            <div class="col-2">
+              <div>
+                <%= image_tag("home-video/trailer/1.jpg", class: "rounded-circle") %>
+              </div><br>
+              <h6 class="text-center"><span class="text-warning">
+                  <%= t "teamplate.name" %></span></h6>
+            </div>
+            <div class="col-2">
+              <div>
+                <%= image_tag("home-video/trailer/1.jpg", class: "rounded-circle") %>
+              </div><br>
+              <h6 class="text-center"><span class="text-warning">
+                  <%= t "teamplate.name" %></span></h6>
+            </div>
+            <div class="col-2">
+              <div>
+                <%= image_tag("home-video/trailer/1.jpg", class: "rounded-circle") %>
+              </div><br>
+              <h6 class="text-center"><span class="text-warning">
+                  <%= t "teamplate.name" %></span></h6>
+            </div>
+            <div class="col-2">
+              <div>
+                <%= image_tag("home-video/trailer/1.jpg", class: "rounded-circle") %>
+              </div><br>
+              <h6 class="text-center"><span class="text-warning">
+                  <%= t "teamplate.name" %></span></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

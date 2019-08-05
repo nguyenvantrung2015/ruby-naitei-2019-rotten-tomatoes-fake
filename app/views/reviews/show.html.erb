@@ -1,0 +1,9 @@
+<h1><%= t ".title" %></h1>
+<tr>
+  <td><%= @review.user.name %></td>
+  <td><%= @review.content %></td>
+  <td><%= @review.score %></td>
+</tr>
+<tr>
+  <td><%= link_to t(".destroy"), @review, method: :delete, data: {confirm: t(".sure")} %></td>
+</tr>

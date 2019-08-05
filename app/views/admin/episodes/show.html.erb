@@ -1,6 +1,40 @@
-<%= @episode.episode_number %><br>
-<%= @episode.info %><br>
-<%= @episode.release_date %><br>
+<div class="box">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-3">
+        <h4 class="text-right"><%= t "Episode number :" %></h4>
+      </div>
+      <div class="col-9">
+        <h4 class="text-warning">
+          <%= @episode.episode_number %>
+        </h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <h4 class="text-right"><%= t "Info :" %></h4>
+      </div>
+      <div class="col-9">
+        <h4 class="text-warning">
+          <%= @episode.info %><br>
+        </h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <h4 class="text-right"><%= t "Release Date :" %></h4>
+      </div>
+      <div class="col-9">
+        <h4 class="text-warning">
+          <%= @episode.release_date %><br>
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
 
 <% if @episode.medium.celebrity_media.any? %>
   <br>
@@ -11,5 +45,10 @@
 <%= render "admin/celebrity_media/form", celebrity_medium: @episode.medium.celebrity_media.build, medium_id: @episode.medium.id %>
 <br>
 
-<%= link_to t(".edit"), edit_admin_tv_show_season_episode_path(@episode) %><br>
-<%= link_to t(".back"), admin_tv_show_season_path(@tv_show, @season) %>
+<span class="badge badge-danger">
+  <%= link_to t(".back"), admin_tv_show_season_path(@tv_show, @season) %>
+</span>
+<span class="badge badge-primary">
+  <%= link_to t(".edit"), edit_admin_tv_show_season_episode_path(@tv_show, @season, @episode) %><br>
+</span>
+

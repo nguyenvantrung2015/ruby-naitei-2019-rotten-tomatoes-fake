@@ -1,5 +1,6 @@
 en:
-  project_title: "Home Video - Ftage"
+  add_celebiry: "Add Celebrity"
+  project_title: "Rotten Potatoes - Review Film"
   users:
     new:
       h1: "Sign up"
@@ -71,6 +72,7 @@ en:
         edit: "Edit"
         destroy: "Destroy"
         sure: "Are you sure?"
+        add_season: "Add a season: "
       new:
         title: "New TvShow"
       edit:
@@ -81,8 +83,7 @@ en:
       destroy:
         deleted_success: "TvShow Deleted"
         delete_failed: "Delete Tvshow Failed !"
-      show:
-        add_season: "Add a season: "
+
     seasons:
       create:
         create_success: "Season Created"
@@ -97,7 +98,7 @@ en:
         info: "Info"
       season:
         edit: "Edit this season: "
-        delete: "Delete season"
+        delete: "Delete this season"
       edit:
         edit: "Editing season "
       show:
@@ -158,6 +159,7 @@ en:
         update_fail: "Update Celebrity Failed !"
       destroy:
         delete_success: "Celebrity Deleted"
+
     celebrity_media:
       not_found: "Celebrity not found!"
       form:
@@ -217,6 +219,14 @@ en:
       edit: "Edit"
       destroy: "Destroy"
       sure: "Are you sure?"
+      tab_movie:
+        title: "Movies"
+        top: "Top Movies"
+        new: "New Movies"
+      tab_tvshow:
+        title: "TVShow"
+        top: "Top TVshow"
+        new: "New TVshow"
     new:
       title: "New TvShow"
     edit:
@@ -278,6 +288,24 @@ en:
       create_failed: "Create News Failed!"
     show:
       title: "Show News"
+
+  reviews:
+    not_found: "Review not found!"
+    form:
+      content: "Content"
+      score: "Score"
+      submit: "Submit"
+    index:
+      title: "Reviews"
+      show: "Show"
+      destroy: "Destroy"
+      sure: "Are you sure?"
+      new: "New Review"
+    create:
+      create_success: "Review Created"
+      create_failed: "Create Review Failed!"
+    show:
+      title: "Show Review"
       edit: "Edit"
       destroy: "Destroy"
       sure: "Are you sure?"
@@ -289,11 +317,17 @@ en:
       update_success: "News Updated"
       update_fail: "Update News Failed !"
     destroy:
-      deleted_success: "News Deleted"
       delete_failed: "Delete News Failed !"
+      title: "New Review"
+      deleted_success: "Review Deleted"
+    review:
+      sure: "Are you sure?"
+      delete: "Delete"
+
   time:
     formats:
       short: "%d-%m-%Y"
+      long: "%d-%m-%Y %H:%M"
       confirmation: "Confirmation"
       submit: "Create my account"
   sessions:
@@ -318,6 +352,9 @@ en:
   login_title: "Login"
   logout: "Logout"
   signup_title: "Sign Up"
+  admin: "Admin"
+  profile: "Profile"
+  setting: "Setting"
   subcribe: "Subcribe"
   name: "Name: "
   submit: "Submit"

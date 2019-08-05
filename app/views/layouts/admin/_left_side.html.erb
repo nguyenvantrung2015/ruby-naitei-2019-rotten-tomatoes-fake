@@ -22,7 +22,7 @@
         </li>
         <li>
           <%= link_to admin_movies_path do %>
-            <i class="ti-package"></i> <span><%= "movies_title" %></span>
+            <i class="ti-palette"></i> <span><%= t "movies_title" %></span>
           <% end %>
         </li>
         <li>
@@ -33,28 +33,6 @@
         <li>
           <%= link_to admin_celebrities_path do %>
             <i class="ti-palette"></i> <span><%= t ".celebrities" %></span>
-          <% end %>
-        </li>
-        <li class="has-sub-menu">
-          <%= link_to "#" do %>
-            <i class="ti-package"></i><span><%= t "movies_title" %></span>
-          <% end %>
-          <ul class="side-header-sub-menu">
-            <li>
-              <%= link_to "#" do %>
-                <span><%= t "teamplate.menu1" %></span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <span><%= t "teamplate.menu1" %></span>
-              <% end %>
-            </li>
-          </ul>
-        </li>
-        <li class="has-sub-menu">
-          <%= link_to "#" do %>
-            <i class="ti-crown"></i> <span><%= t "tvshow_title" %></span>
           <% end %>
         </li>
       </ul>

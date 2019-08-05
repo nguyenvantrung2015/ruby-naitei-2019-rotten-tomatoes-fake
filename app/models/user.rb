@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   enum role: {admin: 0, moderator: 1, critic: 2, normal: 3}
 
+  scope :role, ->(role){where role: role}
+
   before_save :downcase_email
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -48,6 +50,10 @@ class User < ApplicationRecord
 
   def forget
     update_attributes remember_digest: nil
+  end
+
+  def reviewed? reviewable
+    reviewable.reviews.where(user_id: id).exists?
   end
 
   private

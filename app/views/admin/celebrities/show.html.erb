@@ -1,12 +1,35 @@
-<h1><%= t ".title" %></h1>
-<tr>
-  <td><%= @celebrity.name %></td>
-  <td><%= I18n.l(@celebrity.date_of_birth.to_time, format: :short) %></td>
-  <td><%= @celebrity.gender %></td>
-  <td><%= @celebrity.nationality %></td>
-  <td><%= image_tag @celebrity.portrait.url if @celebrity.portrait? %></td>
-</tr>
-<tr>
-  <td><%= link_to t(".edit"), edit_admin_celebrity_path(@celebrity) %></td>
-  <td><%= link_to t(".destroy"), [:admin, @celebrity], method: :delete, data: {confirm: t(".sure")} %></td>
-</tr>
+<h3><%= t ".title" %></h3>
+<span class="badge badge-primary"><%= link_to t(".edit"), edit_admin_celebrity_path(@celebrity) %></span>
+<span class="badge badge-danger"><%= link_to t(".destroy"), [:admin, @celebrity], method: :delete, data: {confirm: t(".sure")}
+%></span><br><br>
+<div class="box">
+  <div class="box-body">
+    <h4 class="text-center"><%= @celebrity.name %> -
+      <span class="text-warning"><%= I18n.l(@celebrity.date_of_birth.to_time, format: :short)%></span>
+    </h4>
+    <div class="row">
+      <div class="col-3">
+        <h4 class="text-right"><%= t "Gender : " %></h4>
+      </div>
+      <div class="col-9">
+        <p class="text-danger"><%= @celebrity.gender %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <h4 class="text-right"><%= t "Nationality : " %></h4>
+      </div>
+      <div class="col-9">
+        <p class="text-danger"><%= @celebrity.nationality %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <h4 class="text-right"><%= t "Image : " %></h4>
+      </div>
+      <div class="col-9">
+        <%= image_tag @celebrity.portrait.url if @celebrity.portrait? %>
+      </div>
+    </div>
+  </div>
+</div>

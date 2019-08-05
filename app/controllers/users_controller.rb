@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
 
     log_in @user if @user.save
-    redirect_to root_path
+    redirect_to request.referrer
   end
 
   private

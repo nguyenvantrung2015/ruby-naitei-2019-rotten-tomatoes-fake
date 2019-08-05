@@ -1,0 +1,34 @@
+<br>
+<br>
+<div class="col-12">
+  <div class="card review-box">
+    <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">
+        <%= image_tag("https://image.ibb.co/jw55Ex/def_face.jpg", alt: "", class: "img img-rounded img-fluid")  %>
+        <p class="text-secondary text-center"><%= I18n.l(review.created_at.to_time, format: :long) %></p>
+      </div>
+      <div class="col-md-10">
+        <p>
+          <a class="float-left" href="https://maniruzzaman-akash.blogspot.com/p/contact.html">
+            <strong class="text-warning"><%= review.user.name %> | <%= review.user.role%></strong></a>
+          <span class="float-right"><span class="text-warning"><%= review.score %></span>
+            <i class="text-warning fa fa-star"></i></span>
+        </p>
+        <div class="clearfix"></div>
+        <br>
+        <p class="content-review-color"><%= review.content %></p>
+        <p>
+          <% if logged_in? %>
+            <% if current_user.admin? || current_user?(review.user) %>
+              <%= link_to t(".delete"), review, method: :delete,
+      data: {confirm: t(".sure")}, class: "float-right btn btn-outline-primary ml-2"  %>
+            <% end %>
+          <% end %>
+          <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

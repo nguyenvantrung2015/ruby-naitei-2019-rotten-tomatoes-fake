@@ -7,8 +7,16 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
   root "static_pages#home"
   resources :movies, only: %i(index show)
-  resources :tv_shows, only: %i(index show)
+  resources :tv_shows, only: %i(index show) do
+    resources :seasons, only: :show do
+      resources :episodes, only: :show
+    end
+  end
   resources :celebrities, only: %i(index show)
+  resources :news, only: :index
+  resources :reviews, except: %i(edit update)
+  resources :search, only: :index
+
   namespace :admin do
     resources :movies
     resources :users, except: %i(new create)
@@ -21,6 +29,4 @@ Rails.application.routes.draw do
     resources :celebrity_media, only: %i(create destroy)
     root "dashboard#index"
   end
-  resources :news
-  resources :search
 end

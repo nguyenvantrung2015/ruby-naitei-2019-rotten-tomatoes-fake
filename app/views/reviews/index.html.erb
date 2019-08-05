@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= t ".title" %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.user.name %></td>
+        <td><%= review.medium.reviewable_type %> </td>
+        <td><%= review.content %> </td>
+        <td><%= review.score %> </td>
+        <td><%= link_to t(".show"), review %></td>
+        <td><%= link_to t(".destroy"), review, method: :delete, data: {confirm: t(".sure")} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t(".new"), new_review_path %>
