@@ -5,7 +5,7 @@ class Admin::BaseController < ApplicationController
   private
 
   def check_logged_in
-    return if logged_in?
+    return if user_signed_in?
     flash[:danger] = t "admin.not_logged_in"
     redirect_to root_url
   end

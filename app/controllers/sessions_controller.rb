@@ -1,23 +1,14 @@
-class SessionsController < ApplicationController
-  def new
-    @user = User.new
-  end
-
+class SessionsController < Devise::SessionsController
   def create
-    session = params[:session]
-    user = User.find_by email: session[:email].downcase
+    self.resource = warden.authenticate(auth_options)
 
-    if user&.authenticate(session[:password])
-      log_in user
-      session[:remember_me] == "1" ? remember(user) : forget(user)
-      user.admin? ? redirect_to(admin_root_path) : redirect_to(root_path)
+    if resource
+      set_flash_message(:notice, :signed_in) if is_flashing_format?
+      sign_in(resource_name, resource)
+      yield resource if block_given?
+      respond_with resource, location: after_sign_in_path_for(resource)
     else
-      render :new
+      redirect_to root_path
     end
-  end
-
-  def destroy
-    log_out if logged_in?
-    redirect_to root_url
   end
 end

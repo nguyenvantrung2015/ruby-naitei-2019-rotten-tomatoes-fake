@@ -1,29 +1,33 @@
-class UsersController < ApplicationController
-  before_action :load_user, only: :show
-
-  def show; end
-
-  def new
-    @user = User.new
-  end
+class UsersController < Devise::RegistrationsController
+  def new; end
 
   def create
-    @user = User.new user_params
+    build_resource(user_params)
 
-    log_in @user if @user.save
-    redirect_to root_path
+    resource.save
+    yield resource if block_given?
+    if resource.persisted?
+      check_sign_up
+    else
+      clean_up_passwords resource
+      set_minimum_password_length
+      respond_with  resource
+    end
   end
-
   private
+  def check_sign_up
+    if resource.active_for_authentication?
+      set_flash_message! :notice, :signed_up
+      sign_up(resource_name, resource)
+      respond_with resource, location: after_sign_up_path_for(resource)
+    else
+      set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+      expire_data_after_sign_in!
+      respond_with resource, location: after_inactive_sign_up_path_for(resource)
+    end
+  end
 
   def user_params
     params.require(:user).permit User::ATTR
-  end
-
-  def load_user
-    @user = User.find_by id: params[:id]
-
-    return if @user
-    redirect_to root_url
   end
 end
