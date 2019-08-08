@@ -1,5 +1,7 @@
 en:
+  not_found: "Can't find any movies with your keywords."
   project_title: "Home Video - Ftage"
+  kw_blank: "Keyword can't be blank"
   users:
     new:
       h1: "Sign up"
@@ -312,7 +314,7 @@ en:
       found: "Found"
 
   news_title: "News"
-  movies_title: "Movies & DVDS"
+  movies_title: "Movies"
   tvshow_title: "TVShow"
   critics_title: "Critics"
   login_title: "Login"

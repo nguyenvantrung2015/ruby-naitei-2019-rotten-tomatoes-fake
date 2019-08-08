@@ -2,19 +2,25 @@
 <div class="slider-area fake-slider container"></div>
 <% end %>
 <div class="container content-margin-top reset-padding">
-  <p id="notice"><%= notice %></p>
-  <div class="row">
+  <% if !@movies.any? and !@tvshows.any? %>
+    <div class="not-found"><%= t "not_found" %></div>
+  <% end %>
+  <div>
     <div class="col-9">
-      <h2 class="text-danger movie_head"> <%= t ".search_result" %> </h2>
-      <div class="row">
-        <h3 class="text-danger movie_head"> <%= t(".found") + " " + @movies.size.to_s + " " + t(".movies") %> </h3>
+      <% if @movies.any? %>
+        <h3 class="text-white movie_head"> <span class="badge badge-secondary"><%= t(".movies") %></span></h3>
+      <% end %>
+        <div class="row">
         <br>
         <% @movies.each do |movie| %>
           <%= render movie %>
         <% end %>
-      </div>]
+      </div>
+      <% if @tvshows.any? %>
+        <h3 class="text-white movie_head"> <span class="badge badge-secondary"><%=t (".tv_shows") %></span></h3>
+
+    <% end %>
       <div class="row">
-        <h3 class="text-danger movie_head"> <%= t(".found") + " " + @tvshows.size.to_s + " " + t(".tv_shows") %> </h3>
         <br>
         <% @tvshows.each do |tvshow| %>
           <%= render tvshow %>

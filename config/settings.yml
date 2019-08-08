@@ -8,6 +8,7 @@ users:
     critic: 2
     normal: 3
 paginate: 10
+limit_cosine: 0.3
 
 movies:
   name_max_length: 100
