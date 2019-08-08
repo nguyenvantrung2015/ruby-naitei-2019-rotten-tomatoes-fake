@@ -1,4 +1,5 @@
 en:
+  not_found: "Can't find any movies with your keywords."
   project_title: "Home Video - Ftage"
   users:
     new:
@@ -312,7 +313,7 @@ en:
       found: "Found"
 
   news_title: "News"
-  movies_title: "Movies & DVDS"
+  movies_title: "Movies"
   tvshow_title: "TVShow"
   critics_title: "Critics"
   login_title: "Login"

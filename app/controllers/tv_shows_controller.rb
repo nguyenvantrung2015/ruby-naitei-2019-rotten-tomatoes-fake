@@ -1,5 +1,5 @@
 class TvShowsController < ApplicationController
-  before_action :load_tvshow, only: %i(index show)
+  before_action :load_tvshow, only: :show
   before_action :build_user, only: %i(index show)
 
   def index

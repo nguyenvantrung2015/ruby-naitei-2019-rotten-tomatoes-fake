@@ -178,7 +178,7 @@ medium = Medium.all
 celebrities = Celebrity.all
 medium.each do |media|
   Faker::Number.within(1..1).times do |n|
-    celebrity_id = 1
+    celebrity_id = Faker::Number.within(1..30)
     medium_id = media.id
     role = Faker::Number.within(0..1)
 

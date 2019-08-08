@@ -1,9 +1,11 @@
-<div class="col-12">
-  <div class="card">
-    <h3 class="movie_head"><%= link_to movie.name, movie %></h3>
-    <h4 class="card-title">
-      <%= image_tag movie.poster.url if movie.poster? %>
-    </h4>
+<div class="trailer-single fix-margin-search">
+  <div class="trailer-img">
+    <%= image_tag movie.poster.url if movie.poster? %>
+  </div>
+  <div class="trailer-titel">
+    <h5>
+      <p class="badge badge-warning"> <%=  t "teamplate.rate" %> </p>
+      <p><%= link_to movie.name, movie, class: "text-center" %></p>
+    </h5>
   </div>
 </div>
-<h3 class="movie_head"></h3>
