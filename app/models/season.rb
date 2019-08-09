@@ -7,8 +7,18 @@ class Season < ApplicationRecord
   ATTR = %i(info poster season_number).freeze
 
   validates :info, presence: true,
-    length: {maximum: Settings.seasons.info_max_length}
+            length: {maximum: Settings.seasons.info_max_length}
   validate :unique_season_number
+
+  def critic_score
+    arr = episodes.map(&:critic_score).reject(&:zero?)
+    arr ? arr.reduce{|sum, score| sum + score} / arr.size : 0
+  end
+
+  def audience_score
+    arr = episodes.map(&:audience_score).reject(&:zero?)
+    arr ? arr.reduce{|sum, score| sum + score} / arr.size : 0
+  end
 
   private
 
