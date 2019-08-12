@@ -1,14 +1,11 @@
 <%= form_for [:admin, @tv_show, season] do |f| %>
   <%= render "admin/shared/error_messages", object: f.object %>
-  <p>
-    <%= f.label t ".season_number" %>
-    <%= f.number_field :season_number %>
-  </p>
-  <p>
-    <%= f.label t ".info" %>
-    <%= f.text_field :info %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+    <h4 class="text-warning"><%= f.label :season_number %></h4>
+    <%= f.number_field :season_number, class: "form-control" %>
+    <br>
+
+    <h4 class="text-warning"><%= f.label :info %></h4>
+    <%= f.text_area :info, class: "form-control" %>
+    <br>
+    <%= f.submit t("submit"), class: "btn btn-primary" %>
 <% end %>

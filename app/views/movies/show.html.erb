@@ -40,7 +40,7 @@
           <div class="row">
             <div class="col-6 text-right">
               <h3><span class="badge-warning badge">
-                  <%= @movie.critic_score %></span></h3>
+                  <%= @critic_score %></span></h3>
               <h4 class="text-muted">
                 <%= t ".right_box.tomascore" %>
               </h4>
@@ -50,7 +50,7 @@
             </div>
             <div class="col-6">
               <h3><span class="badge-warning badge">
-                  <%= @movie.audience_score %></span></h3>
+                  <%= @audience_score %></span></h3>
               <h4 class="text-muted">
                 <%= t ".right_box.audiscore" %>
               </h4>
@@ -65,13 +65,9 @@
         <div class="col-4">
         </div>
         <div class="col-8">
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">
-              <%= t ".right_box.comment" %></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-            <br>
-            <div class="text-right"><button type="button" class="btn btn-warning btn-sm "><%= t"submit" %></button></div>
-          </div>
+          <% if user_signed_in? %>
+            <%= render("reviews/form", medium_id: @movie.medium.id) unless reviewed?(current_user, @movie.medium) %>
+          <% end %>
         </div>
       </div>
       <div class="row">
@@ -105,36 +101,23 @@
         </div>
         <div class="col-12">
           <div class="row">
-            <div class="col-2">
-              <div>
-                <%= image_tag("home-video/trailer/1.jpg", class: "rounded-circle") %>
-              </div><br>
-              <h6 class="text-center"><span class="text-warning">
-                  <%= t "teamplate.name" %></span></h6>
-            </div>
-            <div class="col-2">
-              <div>
-                <%= image_tag("home-video/trailer/1.jpg", class: "rounded-circle") %>
-              </div><br>
-              <h6 class="text-center"><span class="text-warning">
-                  <%= t "teamplate.name" %></span></h6>
-            </div>
-            <div class="col-2">
-              <div>
-                <%= image_tag("home-video/trailer/1.jpg", class: "rounded-circle") %>
-              </div><br>
-              <h6 class="text-center"><span class="text-warning">
-                  <%= t "teamplate.name" %></span></h6>
-            </div>
-            <div class="col-2">
-              <div>
-                <%= image_tag("home-video/trailer/1.jpg", class: "rounded-circle") %>
-              </div><br>
-              <h6 class="text-center"><span class="text-warning">
-                  <%= t "teamplate.name" %></span></h6>
-            </div>
+            <% if @movie.medium.celebrity_media.any? %>
+              <%= render @movie.medium.celebrity_media %>
+            <% end %>
           </div>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-center bg-danger"><span class="text-white ">
+              <%= t"review" %></span>
+          </h3>
+        </div>
+        <% if @movie.medium.reviews.any? %>
+          <%= render @movie.medium.reviews %>
+        <% else %>
+          <%= t ".no_review" %>
+        <% end %>
       </div>
     </div>
   </div>

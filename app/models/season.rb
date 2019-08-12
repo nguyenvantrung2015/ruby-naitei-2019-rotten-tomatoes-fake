@@ -10,6 +10,16 @@ class Season < ApplicationRecord
     length: {maximum: Settings.seasons.info_max_length}
   validate :unique_season_number
 
+  def critic_score
+    arr = episodes.map(&:critic_score).reject(&:zero?)
+    arr ? arr.reduce{|a, e| a + e} / arr.size : 0
+  end
+
+  def audience_score
+    arr = episodes.map(&:audience_score).reject(&:zero?)
+    arr ? arr.reduce{|a, e| a + e} / arr.size : 0
+  end
+
   private
 
   def unique_season_number

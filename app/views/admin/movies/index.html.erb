@@ -25,10 +25,10 @@
               </td>
               <td><h4><%= movie.name %></h4></td>
               <td>
-                <%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, [:admin, movie] %>
+                <h4><%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, [:admin, movie] %>
                 <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'.html_safe, edit_admin_movie_path(movie) %>
                 <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, [:admin, movie], method: :delete,
-                            data: {confirm: t(".sure")} %>
+                            data: {confirm: t(".sure")} %></h4>
               </td>
             </tr>
           <% end %>

@@ -1,7 +1,9 @@
-<tr>
-  <td><%= news.user_name %></td>
-  <td><%= news.content %></td>
-  <td><%= link_to t(".show"), news %></td>
-  <td><%= link_to t(".edit"), edit_news_path(news) %></td>
-  <td><%= link_to t(".destroy"), news, method: :delete, data: {confirm: t(".sure")} %></td>
-</tr>
+<div class="col-12">
+  <div class="card">
+    <h3 class="movie_head"><%= news.user_name %></h3>
+    <h4 class="card-title">
+      <%= news.content %>
+    </h4>
+  </div>
+</div>
+<h3 class="movie_head"></h3>

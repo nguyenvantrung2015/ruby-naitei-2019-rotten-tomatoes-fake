@@ -1,21 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= t ".title" %></h1>
-
-<table>
-  <tbody>
-    <% @celebrities.each do |celebrity| %>
-      <tr>
-        <td><%= celebrity.name %></td>
-        <td><%= image_tag celebrity.portrait.url if celebrity.portrait? %> </td>
-        <td><%= link_to t(".show"), [:admin, celebrity] %></td>
-        <td><%= link_to t(".edit"), edit_admin_celebrity_path(celebrity) %></td>
-        <td><%= link_to t(".destroy"), [:admin, celebrity], method: :delete, data: {confirm: t(".sure")} %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<h1><%= t ".title" %></h1><span class="badge badge-warning"><%= link_to t(".new"), new_admin_celebrity_path %></span>
 <br>
-
-<%= link_to t(".new"), new_admin_celebrity_path %>
+<br>
+<div class="col-12 mb-30">
+  <div class="box">
+    <div class="box-body">
+      <div class="table-responsive">
+        <table class="table table-vertical-middle table-selectable">
+          <!-- Table Head Start -->
+          <thead>
+          <tr>
+            <th><span><%= t ".id" %></span></th>
+            <th><span><%= t ".image" %></span></th>
+            <th><span><%= t ".name" %></span></th>
+            <th><span><%= t ".action" %></span></th>
+          </tr>
+          </thead><!-- Table Head End -->
+          <tbody>
+          <% @celebrities.each do |celebrity| %>
+            <tr>
+              <td>#<%= celebrity.id %></td>
+              <td>
+                <%= image_tag celebrity.portrait.url, class: "table-product-image" if celebrity.portrait? %>
+              </td>
+              <td><h4><%= celebrity.name %></h4></td>
+              <td>
+                <%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, [:admin, celebrity] %>
+                <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'.html_safe, edit_admin_celebrity_path(celebrity) %>
+                <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, [:admin, celebrity], method: :delete,
+                            data: {confirm: t(".sure")} %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody><!-- Table Body End -->
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<%= paginate @celebrities, theme: "twitter-bootstrap-3",pagination_class: "pagination-sm" %>

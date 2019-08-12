@@ -1,21 +1,41 @@
 <p id="notice"><%= notice %></p>
-
-<h1><%= t ".title" %></h1>
-
-<table>
-  <tbody>
-    <% @tv_shows.each do |tv_show| %>
-      <tr>
-        <td><%= tv_show.name %></td>
-        <td><%= image_tag tv_show.poster.url if tv_show.poster? %> </td>
-        <td><%= link_to t(".show"), [:admin, tv_show] %></td>
-        <td><%= link_to t(".edit"), edit_admin_tv_show_path(tv_show) %></td>
-        <td><%= link_to t(".destroy"), [:admin, tv_show], method: :delete, data: {confirm: t(".sure")} %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @tv_shows, theme: "twitter-bootstrap-3" %>
+<h1><%= t ".title" %></h1><span class="badge badge-warning"><%= link_to t(".new"), new_admin_tv_show_path %></span>
 <br>
-
-<%= link_to t(".new"), new_admin_tv_show_path %>
+<br>
+<div class="col-12 mb-30">
+  <div class="box">
+    <div class="box-body">
+      <div class="table-responsive">
+        <table class="table table-vertical-middle table-selectable">
+          <!-- Table Head Start -->
+          <thead>
+          <tr>
+            <th><span><%= t ".id" %></span></th>
+            <th><span><%= t ".image" %></span></th>
+            <th><span><%= t ".name" %></span></th>
+            <th><span><%= t ".action" %></span></th>
+          </tr>
+          </thead><!-- Table Head End -->
+          <tbody>
+          <% @tv_shows.each do |tv_show| %>
+            <tr>
+              <td>#<%= tv_show.id %></td>
+              <td>
+                <%= image_tag tv_show.poster.url, class: "table-product-image" if tv_show.poster? %>
+              </td>
+              <td><h4><%= tv_show.name %></h4></td>
+              <td>
+                <%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, [:admin, tv_show] %>
+                <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'.html_safe, edit_admin_tv_show_path(tv_show) %>
+                <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, [:admin, tv_show], method: :delete,
+                            data: {confirm: t(".sure")} %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody><!-- Table Body End -->
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<%= paginate @tv_shows, theme: "twitter-bootstrap-3",pagination_class: "pagination-sm" %>

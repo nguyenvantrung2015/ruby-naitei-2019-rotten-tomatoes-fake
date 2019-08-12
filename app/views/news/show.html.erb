@@ -1,9 +1,0 @@
-<h1><%= t ".title" %></h1>
-<tr>
-  <td><%= @news.user_name %></td>
-  <td><%= @news.content %></td>
-</tr>
-<tr>
-  <td><%= link_to t(".edit"), edit_news_path(@news) %></td>
-  <td><%= link_to t(".destroy"), @news, method: :delete, data: {confirm: t(".sure")} %></td>
-</tr>

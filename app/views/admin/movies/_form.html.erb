@@ -1,15 +1,15 @@
 <%= form_for [:admin, @movie] do |f| %>
   <%= render "admin/shared/error_messages", object: f.object %>
-  <%= f.label t ".name" %>
-  <%= f.text_field :name, class: "form-control" %>
+  <h4 class="text-warning"><%= f.label t ".name" %></h4>
+  <%= f.text_field :name, class: "form-control" %><br>
 
-  <%= f.label t ".release_date" %>
-  <%= f.date_field :release_date, class: "form-control" %>
+  <h4 class="text-warning"><%= f.label t ".release_date" %></h4>
+  <%= f.date_field :release_date, class: "form-control" %><br>
 
-  <%= f.label t ".info" %>
-  <%= f.text_field :info, class: "form-control" %>
+  <h4 class="text-warning"><%= f.label t ".info" %></h4>
+  <%= f.text_field :info, class: "form-control" %><br>
 
-  <%= f.label t ".poster" %>
+  <h4 class="text-warning"><%= f.label t ".poster" %></h4>
   <span class="poster">
     <%= f.file_field :poster, accept: Settings.movies.poster_accept %>
   </span>

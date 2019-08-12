@@ -24,7 +24,7 @@
           </li>
           <% if user_signed_in? %>
             <li class="nav-item" >
-              <%= link_to t("logout"), logout_path, method: :delete %>
+              <%= link_to t("logout"), destroy_user_session_path, method: :delete %>
             </li>
           <% else %>
             <li class="nav-item" >

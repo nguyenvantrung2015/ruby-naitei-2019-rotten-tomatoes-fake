@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 2019_08_07_065714) do
     t.string "email", default: "", null: false
     t.string "organization"
     t.integer "role"
+    t.string "remember_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
