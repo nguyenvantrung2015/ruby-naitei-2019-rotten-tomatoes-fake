@@ -1,6 +1,5 @@
 en:
   not_found: "Can't find any movies with your keywords."
-  project_title: "Home Video - Ftage"
   kw_blank: "Keyword can't be blank"
   add_celebiry: "Add Celebrity"
   project_title: "Rotten Potatoes - Review Film"
@@ -294,7 +293,6 @@ en:
       title: "Show News"
 
   reviews:
-    not_found: "Review not found!"
     form:
       content: "Content"
       score: "Score"
@@ -327,7 +325,6 @@ en:
     review:
       sure: "Are you sure?"
       delete: "Delete"
-
   time:
     formats:
       short: "%d-%m-%Y"
@@ -356,7 +353,6 @@ en:
   login_title: "Login"
   logout: "Logout"
   signup_title: "Sign Up"
-  admin: "Admin"
   profile: "Profile"
   setting: "Setting"
   subcribe: "Subcribe"
@@ -382,9 +378,12 @@ en:
     title: "Email: "
 
   slider:
-    title1: "title slider 1"
-    title2: "title slider 2"
-    title3: "title slider 3"
+    title1: "For Honor - O Filme (Dublado)"
+    title1_sub: "23/3/2019"
+    title2: "Cá Mập Thời Tiền sử"
+    title2_sub: "23/4/2019"
+    title3: "Ant-Mant"
+    title3_sub: "23/1/2019"
     title4: "title slider 4"
     title5: "title slider 5"
 
@@ -427,7 +426,8 @@ en:
       title: "Sub: New Account"
       note: "You have 4 new notification."
       time: "11.00 am Today"
-  reviews:
-    reviewed: "Already reviewed"
+
+  reviewed:
     form:
       submit: "Submit"
+    not_found: "Review not found!"

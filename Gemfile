@@ -23,6 +23,11 @@ gem "sass-rails", "~> 5.0"
 gem "sprockets-rails"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-facebook"
+gem 'dotenv-rails', groups: [:development, :test]
+
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "factory_bot_rails"

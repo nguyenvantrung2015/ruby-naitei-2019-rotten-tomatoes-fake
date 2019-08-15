@@ -345,8 +345,8 @@
 }
 
 .fake-slider {
-  padding-top: 270px;
-  border-bottom: 4px solid #f09722;
+  padding-top: 200px;
+  /*border-bottom: 4px solid #f09722;*/
 }
 
 .reset-margin {
@@ -557,4 +557,42 @@
 .card-img-top{
   width: 270px;
   height: 400px;
+}
+
+.tvshow-home-image img{
+  width: 270px ;
+  height: 300px ;
+}
+
+.nav-tabs li {
+  margin-left: 0 !important;
+  font-weight: 400;
+}
+
+.bg-overlay-2 {
+  /*position: fixed;*/
+  width: 100%;
+  bottom: 0;
+}
+
+.background-color-white {
+  background-color: white;
+  padding: 30px;
+}
+
+#error_explanation li {
+  color:red;
+}
+
+.image-new-user {
+  width: 60px;
+  border-radius: 50%;
+}
+
+.media-body h4, span, p{
+  color: wheat;
+}
+
+.trailer-titel p:last-child {
+  color:black;
 }

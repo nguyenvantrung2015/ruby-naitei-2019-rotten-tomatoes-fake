@@ -1,9 +1,22 @@
-<div class="col-12">
-  <div class="card">
-    <h3 class="movie_head"><%= news.user_name %></h3>
-    <h4 class="card-title">
-      <%= news.content %>
-    </h4>
+<!--<div class="col-12">-->
+<!--  <div class="card">-->
+<!--    <h3 class="movie_head"><%#= news.user_name %></h3>-->
+<!--    <h4 class="card-title">-->
+      <%#= news.content %>
+<!--    </h4>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<h3 class="movie_head"></h3>-->
+
+<div class="container mt-3">
+  <h2><%= news.user_name %></h2>
+<!--  <p>Create a media object with the .media and .media-body classes:</p>-->
+  <div class="media border p-3">
+<!--    <img class="mr-3 mt-3 rounded-circle" style="width:60px;">-->
+    <%= image_tag("home-video/trailer/1.jpg", class: "image-new-user") %>
+    <div class="media-body">
+      <h4><%= news.user_name %><small><i> <%= t "Posted on" %> <%= I18n.l(news.created_at.to_time, format: :long) %> </i></small></h4>
+      <p><%= news.content %></p>
+    </div>
   </div>
 </div>
-<h3 class="movie_head"></h3>
