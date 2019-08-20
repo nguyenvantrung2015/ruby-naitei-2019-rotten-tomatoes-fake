@@ -1,15 +1,9 @@
 <%= form_for [:admin, celebrity_medium] do |f| %>
   <%= render "admin/shared/error_messages", object: f.object %>
-  <p>
-    <%= f.label t ".celebrity" %>
-    <%= f.collection_select :celebrity_id, Celebrity.all, :id, :name %>
-  </p>
-  <p>
-    <%= f.label t ".role" %>
-    <%= f.select :role, CelebrityMedium.roles.keys.map {|role| [role.titleize,role]} %>
-  </p>
-  <%= f.hidden_field :medium_id, {value: medium_id} %>
-  <p>
-    <%= f.submit %>
-  </p>
+    <h4 class="badge badge-warning"><%= f.label t ".celebrity" %></h4><br>
+    <%= f.collection_select :celebrity_id, Celebrity.all, :id, :name ,class: "form-control" %><br><br>
+    <h4 class="badge badge-warning"><%= f.label t ".role" %></h4><br>
+    <%= f.select :role, CelebrityMedium.roles.keys.map {|role| [role.titleize,role]}, class: "form-control" %><br>
+    <%= f.hidden_field :medium_id, {value: medium_id} %><br>
+    <%= f.submit t("add_celebiry") , class: "btn btn-primary"%>
 <% end %>

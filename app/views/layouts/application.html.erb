@@ -2,26 +2,28 @@
 <html class="no-js" lang="en">
 
 <head>
-	<title><%= t "project_title" %></title>
+  <title><%= t "project_title" %></title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tag %>
   <%= render "layouts/css" %>
 </head>
-  <body>
+<body>
   <div class="page-wraper hmvblk default-bg home-video" id="main-home">
     <%= render "layouts/header" %>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+    <div class="container">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+    </div>
     <%= yield %>
     <%= render "layouts/modal_signin" %>
-    <%= render "layouts/modal_signup" %>
+    <%= render "layouts/modal_signup" %><br><br>
     <%= render "layouts/footer" %>
   </div>
-  <%= render "layouts/js"%>
-  </body>
+  <%= render "layouts/js" %>
+</body>
 </html>

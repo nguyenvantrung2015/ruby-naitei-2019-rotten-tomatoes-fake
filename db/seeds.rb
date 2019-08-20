@@ -74,7 +74,7 @@ Movie.create! name: "Roma",
   Movie.create! name: name,
     release_date: release_date,
     info: info,
-    poster: open("#{Rails.root}/poster.jpg")
+    poster: open("#{Rails.root}/movie_poster.jpg")
 end
 
 TvShow.create! name: "Fleabag",
@@ -97,7 +97,7 @@ TvShow.create! name: "One Day At A Time",
 
   TvShow.create! name: name,
     info: info,
-    poster: open("#{Rails.root}/poster.jpg")
+    poster: open("#{Rails.root}/tv_show_poster.jpg")
 end
 
 tvshows = TvShow.all
@@ -109,7 +109,7 @@ tvshows.each do |tvshow|
 
     Season.create! info: info,
       tv_show_id: tv_show_id,
-      poster: open("#{Rails.root}/poster.jpg"),
+      poster: open("#{Rails.root}/season_poster.jpg"),
       season_number: season_number
   end
 end
@@ -180,7 +180,7 @@ medium = Medium.all
 celebrities = Celebrity.all
 medium.each do |media|
   Faker::Number.within(1..1).times do |n|
-    celebrity_id = 1
+    celebrity_id = Faker::Number.within(1..30)
     medium_id = media.id
     role = Faker::Number.within(0..1)
 

@@ -1,5 +1,8 @@
 en:
-  project_title: "Home Video - Ftage"
+  not_found: "Can't find any movies with your keywords."
+  kw_blank: "Keyword can't be blank"
+  add_celebiry: "Add Celebrity"
+  project_title: "Rotten Potatoes - Review Film"
   users:
     new:
       h1: "Sign up"
@@ -71,6 +74,7 @@ en:
         edit: "Edit"
         destroy: "Destroy"
         sure: "Are you sure?"
+        add_season: "Add a season: "
       new:
         title: "New TvShow"
       edit:
@@ -81,8 +85,7 @@ en:
       destroy:
         deleted_success: "TvShow Deleted"
         delete_failed: "Delete Tvshow Failed !"
-      show:
-        add_season: "Add a season: "
+
     seasons:
       create:
         create_success: "Season Created"
@@ -97,7 +100,7 @@ en:
         info: "Info"
       season:
         edit: "Edit this season: "
-        delete: "Delete season"
+        delete: "Delete this season"
       edit:
         edit: "Editing season "
       show:
@@ -158,6 +161,7 @@ en:
         update_fail: "Update Celebrity Failed !"
       destroy:
         delete_success: "Celebrity Deleted"
+
     celebrity_media:
       not_found: "Celebrity not found!"
       form:
@@ -223,6 +227,14 @@ en:
       edit: "Edit"
       destroy: "Destroy"
       sure: "Are you sure?"
+      tab_movie:
+        title: "Movies"
+        top: "Top Movies"
+        new: "New Movies"
+      tab_tvshow:
+        title: "TVShow"
+        top: "Top TVshow"
+        new: "New TVshow"
     new:
       title: "New TvShow"
     edit:
@@ -284,6 +296,23 @@ en:
       create_failed: "Create News Failed!"
     show:
       title: "Show News"
+
+  reviews:
+    form:
+      content: "Content"
+      score: "Score"
+      submit: "Submit"
+    index:
+      title: "Reviews"
+      show: "Show"
+      destroy: "Destroy"
+      sure: "Are you sure?"
+      new: "New Review"
+    create:
+      create_success: "Review Created"
+      create_failed: "Create Review Failed!"
+    show:
+      title: "Show Review"
       edit: "Edit"
       destroy: "Destroy"
       sure: "Are you sure?"
@@ -295,14 +324,19 @@ en:
       update_success: "News Updated"
       update_fail: "Update News Failed !"
     destroy:
-      deleted_success: "News Deleted"
       delete_failed: "Delete News Failed !"
     news:
       edit: "Edit this article"
       destroy: "Destroy this article"
+      title: "New Review"
+      deleted_success: "Review Deleted"
+    review:
+      sure: "Are you sure?"
+      delete: "Delete"
   time:
     formats:
       short: "%d-%m-%Y"
+      long: "%d-%m-%Y %H:%M"
       confirmation: "Confirmation"
       submit: "Create my account"
   sessions:
@@ -321,12 +355,14 @@ en:
       found: "Found"
 
   news_title: "News"
-  movies_title: "Movies & DVDS"
+  movies_title: "Movies"
   tvshow_title: "TVShow"
   critics_title: "Critics"
   login_title: "Login"
   logout: "Logout"
   signup_title: "Sign Up"
+  profile: "Profile"
+  setting: "Setting"
   subcribe: "Subcribe"
   name: "Name: "
   submit: "Submit"
@@ -348,12 +384,29 @@ en:
 
   email:
     title: "Email: "
+  organization:
+    title: "Organization: "
+  edit_profile:
+    title: "Edit Profile"
+  your_new:
+    title: "Your News"
+  post_review:
+    title: "Post Reviews"
+  up_role:
+    title: "Up role"
+
+  no_post: "There are no posts."
+  no_news: "There are no news. "
 
   slider:
-    title1: "title slider 1"
-    title2: "title slider 2"
-    title3: "title slider 3"
-    title4: "title slider 4"
+    title1: "For Honor - O Filme (Dublado)"
+    title1_sub: "23/3/2019"
+    title2: "Prehistoric Shark"
+    title2_sub: "23/4/2019"
+    title3: "Ant-Man"
+    title3_sub: "23/1/2019"
+    title4: "AQUAMAN"
+    title4_sub: "23/8/2018"
     title5: "title slider 5"
 
   footer:
@@ -395,7 +448,3 @@ en:
       title: "Sub: New Account"
       note: "You have 4 new notification."
       time: "11.00 am Today"
-  reviews:
-    reviewed: "Already reviewed"
-    form:
-      submit: "Submit"

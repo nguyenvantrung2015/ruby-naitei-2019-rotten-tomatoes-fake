@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     else
       flash[:danger] = t ".delete_failed"
     end
-    redirect_back(fallback_location: root_path)
+    redirect_to request.referrer
   end
 
   private

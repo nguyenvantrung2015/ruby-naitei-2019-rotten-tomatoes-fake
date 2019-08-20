@@ -3,8 +3,17 @@ Rails.application.routes.draw do
   get "/home", to: "static_pages#home"
   root "static_pages#home"
   resources :movies, only: %i(index show)
-  resources :tv_shows, only: %i(index show)
+  resources :tv_shows, only: %i(index show) do
+    resources :seasons, only: :show do
+      resources :episodes, only: :show
+    end
+  end
+  resources :users
   resources :celebrities, only: %i(index show)
+  resources :news
+  resources :reviews, only: %i(create destroy)
+  resources :search, only: :index
+
   namespace :admin do
     resources :movies
     resources :users, except: %i(new create)
@@ -18,7 +27,4 @@ Rails.application.routes.draw do
     resources :celebrity_media, only: %i(create destroy)
     root "dashboard#index"
   end
-  resources :news
-  resources :search
-  resources :reviews, only: %i(create destroy)
 end

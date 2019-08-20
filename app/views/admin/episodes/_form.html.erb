@@ -1,18 +1,18 @@
 <%= form_for [:admin, @tv_show, @season, episode] do |f| %>
-  <%= render "admin/shared/error_messages", object: f.object %>
-  <p>
-    <%= f.label t ".episode_number" %>
-    <%= f.number_field :episode_number %>
-  </p>
-  <p>
-    <%= f.label t ".info" %>
-    <%= f.text_field :info %>
-  </p>
-  <p>
-    <%= f.label t ".release_date" %>
-    <%= f.date_field :release_date %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="box">
+    <div class="box-body">
+      <%= render "admin/shared/error_messages", object: f.object %>
+
+      <h4 class="text-warning"><%= f.label t ".episode_number" %></h4>
+      <%= f.number_field :episode_number, class: "form-control" %>
+
+      <h4 class="text-warning"><%= f.label :info %></h4>
+      <%= f.text_field :info, class: "form-control" %>
+
+      <h4 class="text-warning"><%= f.label :release_date %></h4>
+      <%= f.date_field :release_date, class: "form-control" %>
+      <br>
+      <%= f.submit t("submit"), class: "btn btn-primary"%>
+    </div>
+  </div>
 <% end %>

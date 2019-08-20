@@ -1,27 +1,46 @@
+<%= content_for :slider do %>
+  <div class="slider-area fake-slider container"></div>
+<% end %>
+<div class="container content-margin-top reset-padding">
 <p id="notice"><%= notice %></p>
-
-<h1><%= t ".title" %></h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @movies.each do |movie| %>
-      <tr>
-        <td><%= movie.name %></td>
-        <td><%= image_tag movie.poster.url if movie.poster? %> </td>
-        <td><%= link_to t(".show"), movie %></td>
-        <td><%= link_to t(".edit"), edit_movie_path(movie) %></td>
-        <td><%= link_to t(".destroy"), movie, method: :delete, data: {confirm: t(".sure")} %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to t(".new"), new_movie_path %>
+  <div class="row">
+    <div class="col-9">
+      <h2 class="text-danger movie_head"><%= t "section.title_moviews" %> <span><%= t "section.span_moviews"
+      %></span></h2>
+      <div class="row">
+        <% @movies.each do |movie| %>
+          <div class="col-4">
+            <div class="card movie_line">
+              <%= image_tag movie.poster.url, class: "card-img-top" if movie.poster? %>
+              <div class="card-body item-body">
+                <h4 class="card-title">
+                  <span class="badge badge-warning">
+                    <%= movie.critic_score == 0 ? "N/A" : movie.critic_score.round(1)%>
+                  </span>
+                  <%= link_to movie.name, movie %>
+                </h4>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <%= paginate @movies, theme: "twitter-bootstrap-4",
+                   pagination_class: "pagination-sm"%>
+    </div>
+    <div class="col-3 reset-padding">
+      <ul class="nav nav-tabs">
+        <li class="nav-item tab-nav-item">
+          <%= link_to t("movies.show.tab_movie.title"), "#menu1", data: {toggle: "pill"}, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t("movies.show.tab_tvshow.title"), "#menu2", data: {toggle: "pill"}, class: "nav-link"%>
+        </li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <%= render "movies/menu1" %>
+        <%= render "movies/menu2" %>
+      </div>
+    </div>
+  </div>
+</div>

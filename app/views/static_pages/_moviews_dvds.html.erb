@@ -33,8 +33,12 @@
                     <h6>
                       <%= link_to movie.name, movie %>
                     </h6>
-                    <span><%= movie.critic_score %></span>
-                    <span><%= movie.audience_score %></span>
+                    <div class="trailer-titel">
+                      <h5>
+                        <p class="badge badge-warning"> <%= movie.critic_score > 0 ? movie.critic_score.round(1): "N/A" %> </p> |
+                        <p class="badge badge-warning"> <%= movie.audience_score > 0 ? movie.audience_score.round(1) : "N/A" %> </p>
+                      </h5>
+                    </div>
                   </div>
                 </div>
               </div>

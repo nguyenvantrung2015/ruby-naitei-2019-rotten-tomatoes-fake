@@ -41,3 +41,7 @@ config/environments/*.local.yml
 # Ignore uploaded test images.
 /public/uploads
 poster.jpg
+movie_poster.jpg
+tv_show_poster.jpg
+season_poster.jpg
+portrait.jpg

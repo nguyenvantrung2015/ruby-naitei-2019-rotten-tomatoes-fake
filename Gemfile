@@ -4,11 +4,12 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 gem "bcrypt"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap", "~> 4.0.0"
-gem "bootstrap-kaminari-views"
+gem "bootstrap4-kaminari-views"
 gem "carrierwave"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
+gem "dotenv-rails", groups: [:development, :test]
 gem "faker", "1.9.6"
 gem "font-awesome-sass", "~> 4.7.0"
 gem "jbuilder", "~> 2.5"
@@ -23,6 +24,7 @@ gem "sass-rails", "~> 5.0"
 gem "sprockets-rails"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
+
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "factory_bot_rails"

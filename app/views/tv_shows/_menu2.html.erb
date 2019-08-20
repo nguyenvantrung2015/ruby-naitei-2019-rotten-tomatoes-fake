@@ -1,45 +1,18 @@
-<div class="tab-pane fade" id="menu2">
+<div class="tab-pane active" id="menu2">
   <div class="panel panel-default">
     <h2><span class="badge badge-warning">
-        <%= t ".tab_movie.top" %></span></h2>
-    <div>
-      <!-- Content -->
-      <% @top_score_show.each do |movie| %>
-        <h5><span class="badge-light"><i class="fa fa-film" aria-hidden="true"></i></span>
-          <%= link_to movie.name, movie, class: "text-warning"%>
-        </h5>
-      <% end %>
-      <!--end content -->
-    </div>
-    <% unless @top_score_more.count.zero? %>
-      <%= link_to t(".more"),"#", class: "text-info", data: {toggle: "collapse", target: "#demo"}%>
-      <div id="demo" class="collapse">
-        <% @top_score_more.each do |movie| %>
+      <%= t "tv_shows.show.tab_tvshow.top" %></span></h2>
+      <div>
+        <!-- Content -->
+        <% @top_score_tvshow_tab.each do |tvshow| %>
           <h5><span class="badge-light"><i class="fa fa-film" aria-hidden="true"></i></span>
-            <%= link_to movie.name, movie, class: "text-warning"%>
+            <%= link_to tvshow.name, tvshow, class: "text-warning"%>
           </h5>
         <% end %>
+        <!--end content -->
       </div>
-    <% end %>
-  </div>
-  <h5><span class="badge badge-warning">
-      <%= t ".tab_movie.new" %></span>
-  </h5>
-  <div>
-    <% @top_new_show.each do |movie|  %>
-      <h5><span class="badge-light"><i class="fa fa-film" aria-hidden="true"></i></span>
-        <%= link_to movie.name, movie, class: "text-warning"%>
-      </h5>
-    <% end %>
-  </div>
-  <% unless @top_new_more.count.zero? %>
-    <%= link_to t(".more"),"#", class: "text-info", data: {toggle: "collapse", target: "#topmovie"} %>
-    <div id="topmovie" class="collapse">
-      <% @top_new_more.each do |movie| %>
-        <h5><span class="badge-light"><i class="fa fa-film" aria-hidden="true"></i></span>
-          <%= link_to movie.name, movie, class: "text-warning"%>
-        </h5>
+      <% unless @top_score_tvshow.count <= 15 %>
+        <%= link_to t("movies.show.more"), tv_shows_path, class: "text-info" %>
       <% end %>
     </div>
-  <% end %>
-</div>
+  </div>

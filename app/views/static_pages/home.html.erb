@@ -1,19 +1,8 @@
 <%= content_for :slider do %>
-  <div class="slider-area fake-slider container"></div>
+  <%= render "layouts/slider" %>
 <% end %>
 <div class="page-content">
-  <%= render "static_pages/news" %>
   <%= render "static_pages/moviews_dvds" %>
   <%= render "static_pages/tvshow"%>
-  <div class="banner-area pb-90">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="banner-image">
-            <%= image_tag("home-video/banner/1.jpg") %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- <%= render "static_pages/news" %> -->
 </div>

@@ -8,10 +8,10 @@
       <h2 class="text-danger movie_head"><%= t ".title" %> </h2>
       <div class="row">
         <% @all_news.each do |news| %>
-          <%= render "news", news: news %>
+          <%= render partial: "list_news", locals: {news: news} %>
         <% end %>
       </div>
-      <%= paginate @all_news, theme: "twitter-bootstrap-3",
+      <%= paginate @all_news, theme: "twitter-bootstrap-4",
       pagination_class: "pagination-sm"%>
     </div>
     <div class="col-3 reset-padding">
@@ -23,6 +23,11 @@
           <%= link_to t("movies.show.tab_tvshow.title"), "#menu2", data: {toggle: "pill"}, class: "nav-link" %>
         </li>
       </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <%= render "movies/menu1"%>
+        <%= render "movies/menu2"%>
+      </div>
     </div>
   </div>
 </div>

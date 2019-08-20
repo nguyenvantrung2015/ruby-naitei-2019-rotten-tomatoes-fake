@@ -1,8 +1,9 @@
-<%= link_to episode.episode_number, admin_tv_show_season_episode_path(@tv_show, @season, episode) %>
-
-<p><%= t ".edit" %></p>
-<%= render "admin/episodes/form", episode: episode %>
-
-<p><%= link_to t(".delete"), admin_tv_show_season_episode_path(@tv_show, @season, episode), method: :delete %></p>
-
-<br>
+ <h3><%= t ".edit" %>
+   <%= link_to episode.episode_number, admin_tv_show_season_episode_path(@tv_show, @season, episode) %>
+ </h3>
+ <span class="badge badge-warning">
+   <%= link_to t(".delete"), admin_tv_show_season_episode_path(@tv_show, @season, episode),method: :delete, data: {confirm: t(".sure")} %>
+ </span>
+ <br><br>
+ <%= render "admin/episodes/form", episode: episode %>
+ <br>

@@ -1,0 +1,20 @@
+<div class="modal-body">
+  <%= form_for @user, url: user_path(@user), method: :patch  do |f| %>
+    <%= f.label t "name" %>
+    <%= f.text_field :name, class: "form-control" %>
+
+    <%= f.label t "email.title" %>
+    <%= f.text_field :email, class: "form-control", rows: 30 %>
+
+    <%= f.label t "organization.title" %>
+    <%= f.text_field :organization, class: "form-control" %>
+
+    <%= f.label t "password.title" %>
+    <%= f.password_field  :password, autocomplete: "old-password", class: "form-control" %>
+
+    <%= f.label t "password.confirm" %>
+    <%= f.password_field :password_confirm, autocomplete: "old-password", class: "form-control" %>
+    <br><br>
+    <%= f.submit t("submit"), class: "btn btn-primary" %>
+  <% end %>
+</div>

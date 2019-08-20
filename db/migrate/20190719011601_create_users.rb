@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email, null: false, default: ""
       t.string :organization
       t.integer :role
+      # t.string :remember_token
 
       t.timestamps
     end

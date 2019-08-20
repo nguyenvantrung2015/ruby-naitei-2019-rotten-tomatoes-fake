@@ -1,4 +1,159 @@
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
+<%= content_for :slider do %>
+  <div class="slider-area fake-slider container"></div>
+<% end %>
+<div class="container main-secction profile">
+  <div class="row">
+    <div class="row user-left-part">
+      <div class="col-md-3 col-sm-3 col-xs-12 user-profil-part pull-left">
+        <div class="row ">
+          <div class="col-md-12 col-md-12-sm-12 col-xs-12 user-image text-center">
+            <img src="https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png" class="rounded-circle">
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
+            <% if current_user == @user %>
+              <button id="btn-contact" (click)="clearModal()" data-toggle="modal" data-target="#contact" class="btn btn-success btn-block follow btn-edit">
+                <%= t "edit_profile.title" %>
+              </button>
+              <% else %>
+              <div id="btn-contact" class="follow">
+              </div>
+            <% end %>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12 info">
+            <div class="border"></div>
+            <div class="row">
+              <div class="col-md-4">
+                <label><%= t "email.title" %></label>
+              </div>
+              <div class="col-md-8">
+                <p><%= @user.email %></p>
+              </div>
+            </div>
+            <% if @user.organization %>
+              <div class="row">
+                <div class="col-md-4">
+                  <label><%= t "organization.title" %></label>
+                </div>
+                <div class="col-md-8">
+                  <p><%= @user.organization %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9 col-sm-9 col-xs-12 pull-right profile-right-section">
+        <div class="row profile-right-section-row">
+          <div class="col-md-12 profile-header">
+            <div class="row">
+              <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
+                <h1 class="name-style"><%= @user.name%></h1>
+                <h4><span class="badge badge-danger"><%= @user.role %></span></h4>
+              </div>
+              <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-rigth">
+                <button class="btn btn-primary btn-block btn-up-role" data-toggle="modal" data-target="#uprole" (click)="clearModal()">
+                  <%= t "up_role.title" %>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#profile" role="tab" data-toggle="tab"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                      <%= t "your_new.title" %></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#buzz" role="tab" data-toggle="tab"><i class="fa fa-bookmark-o" aria-hidden="true"></i>
+                      <%= t "post_review.title" %></a>
+                  </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content profile-tab">
+                  <div role="tabpanel" class="tab-pane fade show active" id="profile">
+                    <div class="row">
+                      <% if @user.news.count > 0 %>
+                        <% @user.news.each do |item| %>
+                          <div class="col-md-12">
+                            <h4><%= link_to item.title, item %></h4>
+                            <p>
+                              <span class="badge badge-dark">
+                                <%= I18n.l(item.created_at.to_time, format: :long) %>
+                              </span>
+                              <br><%= item.content %></p>
+                          </div>
+                        <% end %>
+                      <% else %>
+                        <div class="col-md-12">
+                          <p><%= t "no_news" %></p>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="buzz">
+                    <div class="row">
+                      <% if @user.reviews.count > 0 %>
+                        <% @user.reviews.each do |item| %>
+                          <div class="col-md-12">
+                            <p>
+                              <span class="badge badge-dark"><%= I18n.l(item.created_at.to_time, format: :long) %></span><br><%= item.content %>
+                            </p>
+                          </div>
+                        <% end %>
+                      <% else %>
+                        <div class="col-md-12">
+                          <p><%= t "no_post" %></p>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if current_user == @user %>
+<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="contact"><b><%= t "edit_profile.title" %></b></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <%= render partial: "form" %>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="uprole" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="contact"><%= t "up_role.title" %>></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="file">Your file</label>
+          <input type="file" id="fileRole" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="openModal()" data-dismiss="modal">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
