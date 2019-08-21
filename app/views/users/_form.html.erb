@@ -9,11 +9,6 @@
     <%= f.label t "organization.title" %>
     <%= f.text_field :organization, class: "form-control" %>
 
-    <%= f.label t "password.title" %>
-    <%= f.password_field  :password, autocomplete: "old-password", class: "form-control" %>
-
-    <%= f.label t "password.confirm" %>
-    <%= f.password_field :password_confirm, autocomplete: "old-password", class: "form-control" %>
     <br><br>
     <%= f.submit t("submit"), class: "btn btn-primary" %>
   <% end %>

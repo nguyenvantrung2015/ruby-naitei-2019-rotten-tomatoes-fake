@@ -11,17 +11,17 @@
     </div>
     <div class="latest-trailer-main">
       <div class="row">
-        <div class="col-md-6">
-          <div class="trailer-left-area slider slider-for-team">
+        <div class="col-md-3">
+          <div class="trailer-left-area slider slider-for-team fix-width-left-thumb">
             <% @movies.each do |movie| %>
-              <div class="slick-left-thumb">
-                <%= image_tag movie.poster.url if movie.poster? %>
+              <div class="slick-left-thumb ">
+                <%= image_tag(movie.poster.url, class: "card-img-top") if movie.poster? %>
                 <%= link_to image_tag("home-video/play-arrow.png", alt: ""),
-                            "https://www.youtube.com/watch?v=hzeI_-Trzu8", class: "popup-youtube" %></div>
+                            "https://www.youtube.com/watch?v=hzeI_-Trzu8", class: "popup-youtube " %></div>
             <% end %>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8 offset-1">
           <div class="trailer-right-area slider slider-nav-team">
             <% @movies.each do |movie| %>
               <div class="traier-nav-thumb-area">

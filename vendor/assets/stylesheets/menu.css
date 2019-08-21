@@ -379,7 +379,7 @@
 
 .trailer-thumb-movie img{
   width: 90px;
-  height: 80px;
+  height: 130px;
 }
 
 .trailer-content span {
@@ -889,4 +889,8 @@ header {
 
 .title-news:hover{
   box-shadow:   1px 1px 1px #aa97d8c2;
+}
+
+.fix-width-left-thumb {
+  width: 288px !important;
 }
