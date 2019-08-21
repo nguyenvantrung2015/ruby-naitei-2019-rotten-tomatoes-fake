@@ -12,7 +12,7 @@ users:
 
 paginate: 9
 tab_show: 10
-limit_cosine: 0.25
+limit_cosine: 0.3
 not_review_yet: 0
 
 movies:

@@ -19,12 +19,15 @@
     </div>
     <div class="col-9">
       <div class="row">
-        <div class="col-8 offset-2 bg-dark">
+        <div class="col-4">
+          <%= image_tag @episode.season.poster.url if @episode.season.poster? %>
+        </div>
+        <div class="col-8 bg-dark">
           <br>
           <div class="text-center">
             <h3 class="text-white">
               <%= @episode.season.tv_show.name %>
-              (<%= @episode.season.tv_show.load_release_year %>)
+              (<%= @episode.season.tv_show.load_release_year.year %>)
             </h3>
             <h3 class="text-white">
               <%= t ".season" %> <%= @episode.season.season_number %> -
@@ -74,13 +77,24 @@
       <div class="row">
         <div class="col-12">
           <h3 class="text-center bg-danger"><span class="text-white ">
-              <%= t"movies.show.tab_movie.title" %></span>
+              Episode</span>
             <%= t"info"%>
           </h3>
         </div>
         <div class="col-12">
           <p>
-            <%= @episode.info %>
+            Director:
+            <% @episode.load_director.each do |d| %>
+              <span class="text-light"><%= d %></span>
+            <% end %>
+          </p>
+          <p>
+            Release date: <span class="text-light"><%= I18n.l(@episode.release_date.to_time, format: :short) %></span>
+          </p>
+          <p>Informartion:
+            <p class="text-light">
+              <%= @episode.info %>
+            </p>
           </p>
         </div>
       </div>
@@ -90,7 +104,7 @@
               <%= t"cast" %></span></h3>
         </div>
         <div class="col-12">
-          <div class="row">
+          <div class="owl-carousel celebrities-slider" style="color: white">
             <%= render @celebrities %>
           </div>
         </div>

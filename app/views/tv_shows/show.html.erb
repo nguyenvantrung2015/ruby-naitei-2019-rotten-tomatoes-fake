@@ -28,7 +28,7 @@
           <div class="text-center">
             <h3 class="text-white">
               <%= @tv_show.name %>
-              (<%= @tv_show.load_release_year %>)
+              (<%= @tv_show.load_release_year.year %>)
             </h3>
             <% if @critic_score.zero? %>
               <div class="text-white">
@@ -76,7 +76,7 @@
                   <div class="card-body">
                     <h4 class="card-title">
                       <span class="badge badge-warning"><%= season.score(:critic).zero? ? "N/A" : season.score(:critic).round(1)  %></span>
-                      <%= link_to "Season #{season.season_number} (#{season.load_release_year})", tv_show_season_path(@tv_show, season)%>
+                      <%= link_to "Season #{season.season_number} (#{season.load_release_year.year})", tv_show_season_path(@tv_show, season)%>
                     </h4>
                   </div>
                 </div>
@@ -88,24 +88,24 @@
       <div class="row">
         <div class="col-12">
           <h3 class="text-center bg-danger"><span class="text-white ">
-              <%= @tv_show.name %></span>
-            <%= t"photos"%>
-          </h3>
-        </div>
-        <div class="col-12">
-          <%= image_tag @tv_show.poster.url if @tv_show.poster?%>
-        </div>
-      </div><br><br>
-      <div class="row">
-        <div class="col-12">
-          <h3 class="text-center bg-danger"><span class="text-white ">
               <%= t"movies.show.tab_movie.title" %></span>
             <%= t"info"%>
           </h3>
         </div>
         <div class="col-12">
           <p>
-            <%= @tv_show.info %>
+            Director:
+            <% @tv_show.load_director.each do |d| %>
+              <span class="text-light"><%= d %></span>
+            <% end %>
+          </p>
+          <p>
+            Release date: <span class="text-light"><%= I18n.l(@tv_show.load_release_year.to_time, format: :short) %></span>
+          </p>
+          <p>Informartion:
+            <p class="text-light">
+              <%= @tv_show.info %>
+            </p>
           </p>
         </div>
       </div>

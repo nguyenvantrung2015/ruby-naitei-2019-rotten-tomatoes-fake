@@ -27,7 +27,7 @@
           <div class="text-center">
             <h3 class="text-white">
               <%= @season.tv_show.name %>
-              (<%= @season.load_release_year %>)
+              (<%= @season.load_release_year.year %>)
             </h3>
             <h3 class="text-white">
               <%= t ".season" %> <%= @season.season_number %>
@@ -103,13 +103,24 @@
       <div class="row">
         <div class="col-12">
           <h3 class="text-center bg-danger"><span class="text-white ">
-              <%= t"movies.show.tab_movie.title" %></span>
+              Season</span>
             <%= t"info"%>
           </h3>
         </div>
         <div class="col-12">
           <p>
-            <%= @season.info %>
+            Director:
+            <% @season.load_director.each do |d| %>
+              <span class="text-light"><%= d %></span>
+            <% end %>
+          </p>
+          <p>
+            Release date: <span class="text-light"><%= I18n.l(@season.load_release_year.to_time, format: :short) %></span>
+          </p>
+          <p>Informartion:
+            <p class="text-light">
+              <%= @season.info %>
+            </p>
           </p>
         </div>
       </div>
@@ -120,9 +131,9 @@
         </div>
         <div class="col-12">
           <div class="row">
-            <% if @celebrities.any? %>
+            <div class="owl-carousel celebrities-slider" style="color: white">
               <%= render @celebrities %>
-            <% end %>
+            </div>
           </div>
         </div>
       </div>

@@ -15,20 +15,3 @@
 <%= render "admin/celebrity_media/form", celebrity_medium: @movie.medium.celebrity_media.build, medium_id: @movie.medium.id %>
 <br>
 <br>
-<div class="box">
-  <div class="box-body">
-    <% if @movie.medium.celebrity_media.any? %>
-      <br>
-      <%= render @movie.medium.celebrity_media %>
-    <% end %>
-  </div>
-</div>
-<br><br>
-<div class="box">
-  <div class="box-body">
-    <h3><%= t ".add_celebrity" %></h3>
-    <%= render "admin/celebrity_media/form", celebrity_medium: @movie.medium.celebrity_media.build, medium_id: @movie.medium.id %>
-    <br>
-  </div>
-</div>
-

@@ -178,10 +178,19 @@ en:
         destroy: "Delete"
         sure: "Are you sure?"
     news:
+      news:
+        sure: "Are you sure?"
+      index:
+        title: "News"
       approve_form:
         approve: Approved
       reject_form:
         reject: Reject
+      update:
+        update_success: "News Status Updated"
+    requests:
+      index:
+        title: "Requests"
 
   movies:
     show:

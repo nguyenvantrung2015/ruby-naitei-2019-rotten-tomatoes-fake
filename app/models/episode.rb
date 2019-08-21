@@ -35,6 +35,11 @@ class Episode < ApplicationRecord
           .joins(:user).where.not(users: {role: :critic}).average(:score) || 0
   end
 
+  def load_director
+    director = medium.celebrity_media.joins(:celebrity).where("celebrity_media.role = 1").pluck("celebrities.name").uniq
+    return director unless director.empty?
+  end
+
   private
 
   def unique_episode_number

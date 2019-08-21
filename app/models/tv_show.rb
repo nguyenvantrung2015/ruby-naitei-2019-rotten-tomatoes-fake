@@ -36,6 +36,12 @@ class TvShow < ApplicationRecord
 
   def load_release_year
     date = seasons.joins(:episodes).where("seasons.season_number = 1 AND episodes.episode_number = 1").pluck("episodes.release_date")
-    year = date[0].year
+    return if date.empty?
+    year = date[0]
+  end
+
+  def load_director
+    director = seasons.joins(episodes: [medium: [celebrity_media: :celebrity]]).where("celebrity_media.role = 1").pluck("celebrities.name").uniq
+    return director unless director.empty?
   end
 end

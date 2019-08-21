@@ -1,9 +1,13 @@
 <div class="container mt-3">
   <h4 class="title-show-news"><%= link_to news.title, news_path(news) %></h4>
   <div class="media border-news p-3">
-    <%= image_tag("home-video/trailer/1.jpg", class: "image-new-user") %>
+    <% if news.user.avatar? %>
+      <%= image_tag(news.user.avatar.url, class: "image-new-user") %>
+    <% else %>
+      <%= image_tag("home-video/trailer/1.jpg", class: "image-new-user") %>
+    <% end %>
     <div class="media-body">
-      <h4><%= news.user_name %>
+      <h4><%= link_to news.user_name, news.user %>
         <small><i> <%= t "Posted on" %> <%= I18n.l(news.created_at.to_time, format: :long) %> </i></small>
       </h4>
       <p><%= sanitize news.content %></p>

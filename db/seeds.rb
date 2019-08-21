@@ -139,6 +139,30 @@ Season.create! info: "Fleabag (Phoebe Waller-Bridge) is back for a second bite, 
   tv_show: TvShow.last,
   poster: open("#{Rails.root}/app/assets/images/poster/tvshows/1/2.jpeg"),
   season_number: 2
+date = Faker::Date.between 10.years.ago, 3.years.ago
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 1
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
+date = date + 1.years
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 2
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
 
 TvShow.create! name: "Barry",
   info: "A comedy about a former marine working as a hit man in the Midwest who goes to the West Coast for a job and winds up getting involved in the Los Angeles theater scene.",
@@ -151,7 +175,30 @@ Season.create! info: "No info",
   tv_show: TvShow.last,
   poster: open("#{Rails.root}/app/assets/images/poster/tvshows/2/2.jpeg"),
   season_number: 2
+date = Faker::Date.between 10.years.ago, 3.years.ago
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 3
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
 
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
+date = date + 1.years
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 4
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
 
 TvShow.create! name: "Better Things",
   info: "A single mom struggles to raise three girls while trying to maintain her career as an actor.",
@@ -168,6 +215,42 @@ Season.create! info: "No info",
   tv_show: TvShow.last,
   poster: open("#{Rails.root}/app/assets/images/poster/tvshows/3/3.jpeg"),
   season_number: 3
+date = Faker::Date.between 10.years.ago, 4.years.ago
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 5
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
+date = date + 1.years
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 6
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
+date = date + 1.years
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 7
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
 
 TvShow.create! name: "One Day At A Time",
   info: "A remake of Norman Lear's classic 1975 sitcom revolves around a Cuban-American family headed by a recently separated military mom who's navigating a new single life while raising two children with the 'help' of her own mother and a building manager named Schneider.",
@@ -184,7 +267,42 @@ Season.create! info: "No info",
   tv_show: TvShow.last,
   poster: open("#{Rails.root}/app/assets/images/poster/tvshows/4/3.jpeg"),
   season_number: 3
+date = Faker::Date.between 10.years.ago, 4.years.ago
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 8
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
 
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
+date = date + 1.years
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 9
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
+date = date + 1.years
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 10
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
 
 TvShow.create! name: "The Punisher",
   info: "After exacting revenge on those responsible for the death of his wife and children, Frank Castle (Jon Bernthal) uncovers a conspiracy that runs far deeper than New York's criminal underworld. Now known throughout the city as The Punisher, he must discover the truth about injustices that affect more than his family alone.",
@@ -197,6 +315,30 @@ Season.create! info: "Former marine-turned-vigilante Frank Castle (Jon Bernthal)
   tv_show: TvShow.last,
   poster: open("#{Rails.root}/app/assets/images/poster/tvshows/5/2.jpeg"),
   season_number: 2
+date = Faker::Date.between 10.years.ago, 3.years.ago
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 11
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
+date = date + 1.years
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 12
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
 
 TvShow.create! name: "The Flash",
   info: "After exacting revenge on those responsible for the death of his wife and children, Frank Castle (Jon Bernthal) uncovers a conspiracy that runs far deeper than New York's criminal underworld. Now known throughout the city as The Punisher, he must discover the truth about injustices that affect more than his family alone.",
@@ -217,6 +359,54 @@ Season.create! info: "With Barry/The Flash (Grant Gustin) voluntarily committing
   tv_show: TvShow.last,
   poster: open("#{Rails.root}/app/assets/images/poster/tvshows/6/4.jpeg"),
   season_number: 4
+date = Faker::Date.between 10.years.ago, 5.years.ago
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 13
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
+date = date + 1.years
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 14
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
+date = date + 1.years
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 15
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
+date = date + 1.years
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 16
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
 
 TvShow.create! name: "True Detective",
   info: "An anthology crime drama written by novelist Nic Pizzolatto. In the third season, a retired detective reexamines a 35-year-old case involving the 1980 disappearance of two Arkansas children. The series begins with Louisiana investigators taking another look at a 1995 murder when a similar case occurs in 2012, while the second season involves the death of a California politician and his possible ties to a career criminal.",
@@ -233,12 +423,10 @@ Season.create! info: "1980: Will and Julie Purcell, the children of feuding pare
   tv_show: TvShow.last,
   poster: open("#{Rails.root}/app/assets/images/poster/tvshows/7/3.jpeg"),
   season_number: 3
-
-seasons = Season.all
-seasons.each do |season|
-  Faker::Number.within(5..10).times do |n|
-    release_date = Faker::Date.between 10.years.ago, Date.today
-    season_id = season.id
+date = Faker::Date.between 10.years.ago, 4.years.ago
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 17
     info = Faker::Lorem.paragraph 15, false, 15
     episode_number = n + 1
 
@@ -247,7 +435,31 @@ seasons.each do |season|
       info: info,
       episode_number: episode_number
   end
-end
+date = date + 1.years
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 18
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
+date = date + 1.years
+Faker::Number.within(5..10).times do |n|
+    release_date = date += 7.days
+    season_id = 19
+    info = Faker::Lorem.paragraph 15, false, 15
+    episode_number = n + 1
+
+    Episode.create! release_date: release_date,
+      season_id: season_id,
+      info: info,
+      episode_number: episode_number
+  end
+
 
 30.times do |n|
   name = Faker::Name.name
@@ -299,12 +511,45 @@ users_reviewable.each do |user|
 end
 
 medium = Medium.all
-celebrities = Celebrity.all
 medium.each do |media|
-  Faker::Number.within(1..1).times do |n|
     celebrity_id = Faker::Number.within(1..30)
     medium_id = media.id
-    role = Faker::Number.within(0..1)
+    role = 1
+
+    CelebrityMedium.create! celebrity_id: celebrity_id,
+      medium_id: medium_id,
+      role: role
+end
+
+medium.each do |media|
+  Faker::Number.within(1..1).times do |n|
+    celebrity_id = Faker::Number.within(1..10)
+    medium_id = media.id
+    role = 0
+
+    CelebrityMedium.create! celebrity_id: celebrity_id,
+      medium_id: medium_id,
+      role: role
+  end
+end
+
+medium.each do |media|
+  Faker::Number.within(1..1).times do |n|
+    celebrity_id = Faker::Number.within(11..20)
+    medium_id = media.id
+    role = 0
+
+    CelebrityMedium.create! celebrity_id: celebrity_id,
+      medium_id: medium_id,
+      role: role
+  end
+end
+
+medium.each do |media|
+  Faker::Number.within(1..1).times do |n|
+    celebrity_id = Faker::Number.within(21..30)
+    medium_id = media.id
+    role = 0
 
     CelebrityMedium.create! celebrity_id: celebrity_id,
       medium_id: medium_id,
