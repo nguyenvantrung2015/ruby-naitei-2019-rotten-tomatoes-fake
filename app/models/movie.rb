@@ -18,7 +18,7 @@ class Movie < ApplicationRecord
   scope :load_all, (
   lambda do
     joins(medium: [{celebrity_media: :celebrity}]).select("movies.id, "\
-      "celebrities.name, movies.name as film_name,movies.release_date")
+      "celebrities.name, movies.name as film_name, movies.release_date")
   end)
   scope :list_search, ->(movies_id){find(movies_id)}
 

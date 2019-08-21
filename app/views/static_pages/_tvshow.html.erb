@@ -18,7 +18,7 @@
             <div class="trailer-titel">
               <h5>
                 <p class="badge badge-warning"> <%= tv_show.score(:critic).zero? ? "N/A" : tv_show.score(:critic).round(1) %> </p>
-                <p><%= link_to tv_show.name, tv_show, class: "text-center" %></p>
+                <p><%= link_to (tv_show.name + " (" + tv_show.load_release_year.to_s + ")"), tv_show, class: "text-center" %></p>
               </h5>
             </div>
           </div>

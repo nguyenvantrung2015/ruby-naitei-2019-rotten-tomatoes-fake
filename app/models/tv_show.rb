@@ -33,4 +33,9 @@ class TvShow < ApplicationRecord
     return 0 if arr.empty?
     arr.reduce(:+) / arr.size
   end
+
+  def load_release_year
+    date = seasons.joins(:episodes).where("seasons.season_number = 1 AND episodes.episode_number = 1").pluck("episodes.release_date")
+    year = date[0].year
+  end
 end

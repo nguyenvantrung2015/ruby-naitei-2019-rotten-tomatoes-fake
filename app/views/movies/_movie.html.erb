@@ -5,7 +5,7 @@
   <div class="trailer-titel">
     <h5>
       <p class="badge badge-warning"> <%= movie.score(:critic).zero? ? "N/A" : movie.score(:critic).round(1) %> </p>
-      <p><%= link_to movie.name, movie, class: "text-center" %></p>
+      <p><%= link_to (movie.name + " (" + movie.release_date.year.to_s + ")"), movie, class: "text-center" %></p>
     </h5>
   </div>
 </div>

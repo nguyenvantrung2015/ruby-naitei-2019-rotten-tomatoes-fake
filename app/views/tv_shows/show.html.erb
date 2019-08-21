@@ -28,6 +28,7 @@
           <div class="text-center">
             <h3 class="text-white">
               <%= @tv_show.name %>
+              (<%= @tv_show.load_release_year %>)
             </h3>
             <% if @critic_score.zero? %>
               <div class="text-white">
@@ -75,7 +76,7 @@
                   <div class="card-body">
                     <h4 class="card-title">
                       <span class="badge badge-warning"><%= season.score(:critic).zero? ? "N/A" : season.score(:critic).round(1)  %></span>
-                      <%= link_to "Season #{season.season_number}", tv_show_season_path(@tv_show, season)%>
+                      <%= link_to "Season #{season.season_number} (#{season.load_release_year})", tv_show_season_path(@tv_show, season)%>
                     </h4>
                   </div>
                 </div>

@@ -24,6 +24,7 @@
           <div class="text-center">
             <h3 class="text-white">
               <%= @episode.season.tv_show.name %>
+              (<%= @episode.season.tv_show.load_release_year %>)
             </h3>
             <h3 class="text-white">
               <%= t ".season" %> <%= @episode.season.season_number %> -

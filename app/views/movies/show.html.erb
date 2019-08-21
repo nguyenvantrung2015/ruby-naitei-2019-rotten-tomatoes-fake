@@ -28,6 +28,7 @@
           <div class="text-center">
             <h3 class="text-white">
               <%= @movie.name %>
+              (<%= @movie.release_date.year %>)
             </h3>
             <% if @critic_score.zero? %>
               <div class="text-white">

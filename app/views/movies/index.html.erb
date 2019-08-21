@@ -17,7 +17,7 @@
                   <span class="badge badge-warning">
                     <%= movie.score(:critic).zero? ? "N/A" : movie.score(:critic).round(1)%>
                   </span>
-                  <%= link_to movie.name, movie %>
+                  <%= link_to (movie.name + " (" + movie.release_date.year.to_s + ")"), movie %>
                 </h4>
               </div>
             </div>

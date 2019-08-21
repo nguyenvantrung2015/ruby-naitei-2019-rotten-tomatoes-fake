@@ -31,7 +31,7 @@
                   </div>
                   <div class="trailer-content">
                     <h6>
-                      <%= link_to movie.name, movie %>
+                      <%= link_to (movie.name + " (" + movie.release_date.year.to_s + ")"), movie %>
                     </h6>
                     <div class="trailer-titel">
                       <h5>

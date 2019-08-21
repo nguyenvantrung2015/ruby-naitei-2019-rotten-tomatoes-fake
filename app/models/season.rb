@@ -22,6 +22,11 @@ class Season < ApplicationRecord
     arr.reduce(:+) / arr.size
   end
 
+  def load_release_year
+    date = episodes.where("episodes.episode_number = 1").pluck("episodes.release_date")
+    year = date[0].year
+  end
+
   private
 
   def unique_season_number
