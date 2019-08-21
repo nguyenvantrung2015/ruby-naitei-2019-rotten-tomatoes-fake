@@ -819,16 +819,16 @@ header {
   background-color: black !important;
 }
 
-.profile-tab p{
+.info p,.news-profile p{
+  color: #5a3e06;
+}
+
+.news-profile {
+  color: #5a3e06;
   padding: 10px;
   box-shadow: 2px 1px 3px #333;
   margin-top: 15px;
 }
-
-.profile-tab p, .info p{
-  color: #5a3e06;
-}
-
 .btn-edit {
   width: 255px;
 }

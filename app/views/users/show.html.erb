@@ -95,15 +95,17 @@
                         <% @user.news.each do |item| %>
                           <div class="col-md-12">
                             <h4><%= link_to item.title, item %></h4>
+                            <div class="news-profile">
                               <span class="badge badge-dark">
                                 <%= I18n.l(item.created_at.to_time, format: :long) %>
                               </span>
                               <br><%= sanitize item.content %>
+                            </div>
                           </div>
                         <% end %>
                       <% else %>
                         <div class="col-md-12">
-                          <p><%= t "no_news" %></p>
+                          <div class="news-profile"><%= t "no_news" %></div>
                         </div>
                       <% end %>
                     </div>
@@ -113,14 +115,14 @@
                       <% if @user.reviews.count > 0 %>
                         <% @user.reviews.each do |item| %>
                           <div class="col-md-12">
-                            <p>
+                            <div class="news-profile">
                               <span class="badge badge-dark"><%= I18n.l(item.created_at.to_time, format: :long) %></span><br><%= item.content %>
-                            </p>
+                            </div>
                           </div>
                         <% end %>
                       <% else %>
                         <div class="col-md-12">
-                          <p><%= t "no_post" %></p>
+                          <div class="news-profile"><%= t "no_post" %></div>
                         </div>
                       <% end %>
                     </div>
@@ -131,16 +133,16 @@
                         <% @user.requests.update_desc.each do |item| %>
                           <div class="col-md-12">
                             <h4>Request to change role from normal to critic</h4>
-                            <p>
+                            <div class="news-profile">
                               <span class="badge badge-dark">
                                 <%= I18n.l(item.created_at.to_time, format: :long) %>
                               </span>
-                              <br><%= item.status.capitalize %></p>
+                              <br><%= item.status.capitalize %></div>
                           </div>
                         <% end %>
                       <% else %>
                         <div class="col-md-12">
-                          <p><%= t "no_requests" %></p>
+                          <div class="news-profile"><%= t "no_requests" %></div>
                         </div>
                       <% end %>
                     </div>

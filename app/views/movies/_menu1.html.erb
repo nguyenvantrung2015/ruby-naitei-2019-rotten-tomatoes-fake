@@ -9,7 +9,7 @@
         </h5>
       <% end %>
     </div>
-    <% unless @top_score_movie.count <= 15 %>
+    <% unless @top_score_movie.count <= 5 %>
       <%= link_to t("movies.show.more"), movies_path, class: "text-info" %>
     <% end %>
   </div>

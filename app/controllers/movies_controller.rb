@@ -11,9 +11,7 @@ class MoviesController < ApplicationController
     @review = Review.new
 
     @critic_score = @movie.score(:critic)
-                        .zero? ? "N/A" : @movie.score(:critic).round(1)
     @audience_score = @movie.score(:normal)
-                          .zero? ? "N/A" : @movie.score(:normal).round(1)
     @celebrities = Movie.celebrities_list @movie.id
   end
 

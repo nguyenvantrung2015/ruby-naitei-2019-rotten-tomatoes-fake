@@ -11,7 +11,7 @@
         <% end %>
         <!--end content -->
       </div>
-      <% unless @top_score_tvshow.count <= 15 %>
+      <% unless @top_score_tvshow.count <= 5 %>
         <%= link_to t("movies.show.more"), tv_shows_path, class: "text-info" %>
       <% end %>
     </div>

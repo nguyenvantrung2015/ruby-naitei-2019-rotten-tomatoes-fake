@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user!
   before_action :load_review, :check_user, only: :destroy
 
   def create

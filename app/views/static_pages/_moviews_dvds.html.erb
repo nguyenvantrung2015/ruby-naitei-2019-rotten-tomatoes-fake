@@ -35,8 +35,8 @@
                     </h6>
                     <div class="trailer-titel">
                       <h5>
-                        <p class="badge badge-warning"> <%= movie.score(:critic) ? movie.score(:critic).round(1): "N/A" %> </p> |
-                        <p class="badge badge-warning"> <%= movie.score(:normal) ? movie.score(:normal).round(1) : "N/A" %> </p>
+                        <p class="badge badge-warning"> <%= movie.score(:critic).zero? ? "N/A": movie.score(:critic).round(1) %> </p> |
+                        <p class="badge badge-warning"> <%= movie.score(:normal).zero? ? "N/A": movie.score(:normal).round(1) %> </p>
                       </h5>
                     </div>
                   </div>
