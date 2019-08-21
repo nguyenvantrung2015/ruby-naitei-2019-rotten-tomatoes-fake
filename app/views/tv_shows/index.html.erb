@@ -14,7 +14,7 @@
               <div class="card-body item-body">
                 <h4 class="card-title">
                   <span class="badge badge-warning">
-                    <%= tv_show.score(:critic) == 0 ? "N/A" : tv_show.score(:critic).round(1) %>
+                    <%= tv_show.score(:critic).zero? ? "N/A" : tv_show.score(:critic).round(1) %>
                   </span>
                   <%= link_to tv_show.name, tv_show %>
                 </h4>

@@ -11,7 +11,7 @@
       <% end %>
       <!--end content -->
     </div>
-    <% unless @top_score_movie.count <= 5 %>
+    <% unless @top_score_movie.count <= Settings.tab_show %>
       <%= link_to t("movies.show.more"), movies_path, class: "text-info" %>
     <% end %>
   </div>

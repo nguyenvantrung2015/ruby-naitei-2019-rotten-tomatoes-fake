@@ -15,7 +15,7 @@
               <div class="card-body item-body">
                 <h4 class="card-title">
                   <span class="badge badge-warning">
-                    <%= movie.score(:critic) == 0 ? "N/A" : movie.score(:critic).round(1)%>
+                    <%= movie.score(:critic).zero? ? "N/A" : movie.score(:critic).round(1)%>
                   </span>
                   <%= link_to movie.name, movie %>
                 </h4>

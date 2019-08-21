@@ -14,8 +14,8 @@ class TvShowsController < ApplicationController
     @tv_show = TvShow.find_by id: params[:id]
 
     if @tv_show
-      @critic_score = @tv_show.score(:critic).zero? ? "N/A" : @tv_show.score(:critic).round(1)
-      @audience_score = @tv_show.score(:normal).zero? ? "N/A" : @tv_show.score(:normal).round(1)
+      @critic_score = @tv_show.score(:critic)
+      @audience_score = @tv_show.score(:normal)
       @celebrities = TvShow.celebrities_list @tv_show.id
     else
       flash[:danger] = t ".not_found"
@@ -26,8 +26,9 @@ class TvShowsController < ApplicationController
 
   def build_movie_tvshow
     @top_score_movie = Movie.create_top_score
-    @top_score_movie_tab = @top_score_movie.take 5
+    @top_score_movie_tab = @top_score_movie.take Settings.tab_show
+
     @top_score_tvshow = TvShow.all.create_top_score
-    @top_score_tvshow_tab = @top_score_tvshow.take 5
+    @top_score_tvshow_tab = @top_score_tvshow.take Settings.tab_show
   end
 end

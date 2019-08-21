@@ -11,8 +11,8 @@ users:
   index_avatar_width: 200
 
 paginate: 9
-tab_show: 5
-limit_cosine: 0.3
+tab_show: 10
+limit_cosine: 0.25
 not_review_yet: 0
 
 movies:

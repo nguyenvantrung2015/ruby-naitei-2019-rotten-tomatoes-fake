@@ -21,9 +21,9 @@ class EpisodesController < ApplicationController
 
   def build_movie_tvshow
     @top_score_movie = Movie.create_top_score
-    @top_score_movie_tab = @top_score_movie.take 5
+    @top_score_movie_tab = @top_score_movie.take Settings.tab_show
 
     @top_score_tvshow = TvShow.all.create_top_score
-    @top_score_tvshow_tab = @top_score_tvshow.take 5
+    @top_score_tvshow_tab = @top_score_tvshow.take Settings.tab_show
   end
 end
