@@ -19,7 +19,7 @@
 .main-menu nav ul li a {
   color: #fff;
   display: block;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 800;
   padding: 28px 16px;
   position: relative;
@@ -47,10 +47,10 @@
   position: relative;
 }
 .main-menu ul li ul > li > a {
-  border-bottom: 1px dashed #fff;
+  /*border-bottom: 1px dashed #fff;*/
   color: #fff !important;
   display: block;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 12px;
   overflow: hidden;
@@ -893,4 +893,9 @@ header {
 
 .fix-width-left-thumb {
   width: 288px !important;
+}
+
+.home-icon {
+  padding: 23px 31px !important;
+  font-size: 26px !important;
 }
