@@ -4,3 +4,14 @@
 <%= javascript_include_tag "jquery.ajaxchimp.min" %>
 <%= javascript_include_tag "plugins" %>
 <%= javascript_include_tag "main" %>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        var owl = $('.celebrities-slider');
+        owl.owlCarousel({
+            items:4,
+            loop:true,
+            margin:10,
+            autoplay:true
+        });
+    });
+</script>
