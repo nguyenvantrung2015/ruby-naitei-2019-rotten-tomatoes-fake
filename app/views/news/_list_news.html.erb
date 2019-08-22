@@ -1,5 +1,6 @@
 <div class="container mt-3">
-  <h4 class="title-news"><i class="fa fa-file-text-o text-blue" aria-hidden="true"></i>
-    <%= link_to news.title, news %>
-    <p class="text-right">Post by: <%= link_to news.user_name, news.user, class: "text-blue" %> at: <%= I18n.l(news.updated_at.to_time, format: :long) %></p></h4>
+  <h4 class="title-news">
+    <p class="text-left">Post by: <%= link_to news.user_name, news.user, class: "text-blue" %> at: <%= I18n.l(news.updated_at.to_time, format: :long) %></p>
+    <i class="fa fa-file-text-o text-blue" aria-hidden="true"></i> <%= link_to news.title, news %>
+  </h4>
 </div>
